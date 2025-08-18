@@ -168,6 +168,19 @@ img { max-width: 100%; height: auto; display: block; }
 .gallery-date { font-size: 12px; color: var(--muted); background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); padding: 4px 8px; border-radius: 999px; }
 .gallery-caption { font-size: 14px; color: var(--text); opacity: 0.92; }
 
+.video-wrap { position: relative; width: 100%; }
+.video-wrap video {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  max-height: calc(100vh - 140px);
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(0,0,0,0.4);
+  display: block;
+}
+.video-note { color: var(--muted); margin-top: 10px; font-size: 14px; }
+
 .site-footer { margin-top: 40px; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.015)); }
 .footer-grid { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 16px; padding: 28px 0; }
 .footer-bottom { padding: 12px 0 28px; color: var(--muted); }
