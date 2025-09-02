@@ -1,9 +1,9 @@
 // DeGroff Aviation Technologies — Interactions
 
-// Initialize EmailJS (commented out until you get your keys)
-// (function() {
-//   emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
-// })();
+// Initialize EmailJS
+(function(){
+  emailjs.init("PJp-Gm6ZhIgKkvlLu");
+})();
 
 // Mobile nav toggle
 const navToggle = document.querySelector('.nav-toggle');
@@ -88,58 +88,48 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
-// Email signup form with EmailJS
-const signupForm = document.querySelector('.signup-form');
-if (signupForm) {
-  signupForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const email = signupForm.querySelector('input[type="email"]').value;
-    const submitBtn = signupForm.querySelector('button[type="submit"]');
-    
-    if (email) {
+// Newsletter Signup - Fresh Start
+document.addEventListener('DOMContentLoaded', function() {
+  const newsletterForm = document.getElementById('newsletterForm');
+  const newsletterButton = document.getElementById('newsletterButton');
+  
+  if (newsletterForm && newsletterButton) {
+    newsletterForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+      
       // Show loading state
-      const originalText = submitBtn.textContent;
-      submitBtn.textContent = 'Subscribing...';
-      submitBtn.disabled = true;
+      const originalText = newsletterButton.value;
+      newsletterButton.value = 'Subscribing...';
+      newsletterButton.disabled = true;
       
-      // EmailJS parameters
-      const templateParams = {
-        to_email: 'info@degroffaviation.com', // Your email address
-        from_email: email,
-        subject: 'New Newsletter Subscription',
-        message: `New newsletter subscription from: ${email}`,
-        reply_to: email
-      };
+      // Debug: Check if EmailJS is available
+      console.log('EmailJS available:', typeof emailjs !== 'undefined');
+      console.log('Form element:', document.getElementById('newsletterForm'));
       
-      // For now, just show success message (EmailJS will be added later)
-      setTimeout(() => {
-        alert('Thank you for subscribing! We\'ll keep you updated on PitotShield V2 news.');
-        signupForm.reset();
-        closeNewsletterModal();
-        // Reset button state
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-      }, 1000);
-      
-      // TODO: Uncomment when EmailJS is set up
-      // emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
-      //   .then(function(response) {
-      //     console.log('SUCCESS!', response.status, response.text);
-      //     alert('Thank you for subscribing! We\'ll keep you updated on PitotShield V2 news.');
-      //     signupForm.reset();
-      //     closeNewsletterModal();
-      //   }, function(error) {
-      //     console.log('FAILED...', error);
-      //     alert('Sorry, there was an error. Please try again or contact us directly.');
-      //   })
-      //   .finally(function() {
-      //     // Reset button state
-      //     submitBtn.textContent = originalText;
-      //     submitBtn.disabled = false;
-      //   });
-    }
-  });
-}
+      // Send email using EmailJS sendForm method
+      emailjs.sendForm('service_dw49i0o', 'template_ifsa9jp', '#newsletterForm').then(
+        (response) => {
+          console.log('SUCCESS!', response.status, response.text);
+          alert('Thank you for subscribing! We\'ll keep you updated on PitotShield V2™ SmartCover™ (PSV2) news.');
+          newsletterForm.reset();
+          closeNewsletterModal();
+        },
+        (error) => {
+          console.log('FAILED...', error);
+          console.log('Error details:', error);
+          console.log('Error text:', error.text);
+          console.log('Error status:', error.status);
+          alert('Sorry, there was an error. Please try again or contact us directly. Error: ' + (error.text || error.message || 'Unknown error'));
+        },
+      )
+        .finally(function() {
+          // Reset button state
+          newsletterButton.value = originalText;
+          newsletterButton.disabled = false;
+        });
+    });
+  }
+});
 
 // LinkedIn Feed Functionality
 function initLinkedInFeed() {
@@ -158,7 +148,7 @@ function initLinkedInFeed() {
       id: '1',
       author: 'DeGroff Aviation Technologies',
       date: '3 days ago',
-      content: '🚀 Exciting news! Our PitotShield V2 SmartCover™ is now being used by multiple major airlines worldwide. The auto-releasing technology is preventing costly pitot tube damage and improving safety across the industry. #AviationSafety #PitotShieldV2 #Innovation',
+      content: '🚀 Exciting news! Our PitotShield V2™ SmartCover™ (PSV2) is now being used by multiple major airlines worldwide. The auto-releasing technology is preventing costly pitot tube damage and improving safety across the industry. #AviationSafety #PitotShieldV2 #Innovation',
       likes: 47,
       comments: 12,
       shares: 8
@@ -167,7 +157,7 @@ function initLinkedInFeed() {
       id: '2',
       author: 'DeGroff Aviation Technologies',
       date: '1 week ago',
-      content: '✈️ At the recent Aviation Maintenance Conference, we demonstrated how the PitotShield V2 eliminates human error in pitot tube protection. The heat-triggered auto-release feature ensures covers are never forgotten during pre-flight checks. #AviationMaintenance #SafetyFirst',
+      content: '✈️ At the recent Aviation Maintenance Conference, we demonstrated how the PitotShield V2™ SmartCover™ (PSV2) eliminates human error in pitot tube protection. The heat-triggered auto-release feature ensures covers are never forgotten during pre-flight checks. #AviationMaintenance #SafetyFirst',
       likes: 29,
       comments: 7,
       shares: 4
@@ -176,7 +166,7 @@ function initLinkedInFeed() {
       id: '3',
       author: 'DeGroff Aviation Technologies',
       date: '2 weeks ago',
-      content: '🔧 Manufacturing excellence: Each PitotShield V2 is crafted with precision using SLS additive manufacturing and sintered pure polypropylene. No fabric to unravel, no maintenance headaches - just reliable protection when you need it most.',
+      content: '🔧 Manufacturing excellence: Each PitotShield V2™ SmartCover™ (PSV2) is crafted with precision using SLS additive manufacturing and sintered pure polypropylene. No fabric to unravel, no maintenance headaches - just reliable protection when you need it most.',
       likes: 35,
       comments: 9,
       shares: 6
@@ -185,7 +175,7 @@ function initLinkedInFeed() {
       id: '4',
       author: 'DeGroff Aviation Technologies',
       date: '3 weeks ago',
-      content: '📈 Since 1985, DeGroff Aviation Technologies has been at the forefront of aviation safety innovation. Our PitotShield V2 represents 40 years of experience in protecting precision instruments. Thank you to our customers for trusting us with your safety needs.',
+      content: '📈 Since 1985, DeGroff Aviation Technologies has been at the forefront of aviation safety innovation. Our PitotShield V2™ SmartCover™ (PSV2) represents 40 years of experience in protecting precision instruments. Thank you to our customers for trusting us with your safety needs.',
       likes: 52,
       comments: 15,
       shares: 11
