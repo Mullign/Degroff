@@ -109,6 +109,9 @@ document.addEventListener('DOMContentLoaded', function() {
     newsletterForm.addEventListener('submit', function(event) {
       event.preventDefault();
       
+      console.log('Form submitted!');
+      alert('Form submitted - testing...');
+      
       // Show loading state
       const originalText = newsletterButton.value;
       newsletterButton.value = 'Subscribing...';
@@ -127,10 +130,20 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       
       // Get form data
-      const formData = new FormData(newsletterForm);
+      const nameValue = document.getElementById('userName').value.trim();
+      const emailValue = document.getElementById('userEmail').value.trim();
+      
+      // Validate inputs
+      if (!nameValue || !emailValue) {
+        alert('Please fill in both name and email fields.');
+        newsletterButton.value = originalText;
+        newsletterButton.disabled = false;
+        return;
+      }
+      
       const templateParams = {
-        name: formData.get('name'),
-        email: formData.get('email')
+        name: nameValue,
+        email: emailValue
       };
       
       console.log('Template params:', templateParams);
