@@ -1,9 +1,21 @@
 // DeGroff Aviation Technologies — Interactions
 
 // Initialize EmailJS
-(function(){
-  emailjs.init("PJp-Gm6ZhIgKkvlLu");
-})();
+window.addEventListener('load', function() {
+  if (typeof emailjs !== 'undefined') {
+    emailjs.init({
+      publicKey: "PJp-Gm6ZhIgKkvlLu",
+      blockHeadless: true,
+      limitRate: {
+        id: 'newsletter-signup',
+        throttle: 30000,
+      }
+    });
+    console.log('EmailJS initialized successfully');
+  } else {
+    console.error('EmailJS not loaded');
+  }
+});
 
 // Mobile nav toggle
 const navToggle = document.querySelector('.nav-toggle');
@@ -106,22 +118,38 @@ document.addEventListener('DOMContentLoaded', function() {
       console.log('EmailJS available:', typeof emailjs !== 'undefined');
       console.log('Form element:', document.getElementById('newsletterForm'));
       
-      // Send email using EmailJS sendForm method
-      emailjs.sendForm('service_dw49i0o', 'template_ifsa9jp', '#newsletterForm').then(
-        (response) => {
+      // Check if EmailJS is loaded
+      if (typeof emailjs === 'undefined') {
+        alert('Email service is not available. Please try again later or contact us directly.');
+        newsletterButton.value = originalText;
+        newsletterButton.disabled = false;
+        return;
+      }
+      
+      // Get form data
+      const formData = new FormData(newsletterForm);
+      const templateParams = {
+        name: formData.get('name'),
+        email: formData.get('email')
+      };
+      
+      console.log('Template params:', templateParams);
+      
+      // Send email using EmailJS send method
+      emailjs.send('service_dw49i0o', 'template_ifsa9jp', templateParams)
+        .then(function(response) {
           console.log('SUCCESS!', response.status, response.text);
           alert('Thank you for subscribing! We\'ll keep you updated on PitotShield V2™ SmartCover™ (PSV2) news.');
           newsletterForm.reset();
           closeNewsletterModal();
-        },
-        (error) => {
+        })
+        .catch(function(error) {
           console.log('FAILED...', error);
           console.log('Error details:', error);
           console.log('Error text:', error.text);
           console.log('Error status:', error.status);
           alert('Sorry, there was an error. Please try again or contact us directly. Error: ' + (error.text || error.message || 'Unknown error'));
-        },
-      )
+        })
         .finally(function() {
           // Reset button state
           newsletterButton.value = originalText;
