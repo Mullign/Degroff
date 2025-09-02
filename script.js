@@ -31,10 +31,10 @@ if (yearEl) {
 
 // Auto-show newsletter popup after page loads
 window.addEventListener('load', () => {
-  // Check if user has already seen the popup (using localStorage)
-  const hasSeenPopup = localStorage.getItem('newsletterPopupSeen');
+  // Check if user has clicked "Never Show Again" (using localStorage)
+  const neverShowAgain = localStorage.getItem('newsletterNeverShow');
   
-  if (!hasSeenPopup) {
+  if (!neverShowAgain) {
     // Show popup after 3 seconds
     setTimeout(() => {
       openNewsletterModal();
@@ -59,8 +59,17 @@ function closeNewsletterModal() {
   if (modal) {
     modal.style.display = 'none';
     document.body.style.overflow = 'auto'; // Restore scrolling
-    // Mark that user has seen the popup
-    localStorage.setItem('newsletterPopupSeen', 'true');
+    // Don't set any localStorage here - popup will show again next time
+  }
+}
+
+function neverShowNewsletter() {
+  const modal = document.getElementById('newsletterModal');
+  if (modal) {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto'; // Restore scrolling
+    // Mark that user never wants to see the popup again
+    localStorage.setItem('newsletterNeverShow', 'true');
   }
 }
 
