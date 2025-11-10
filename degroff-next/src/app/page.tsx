@@ -6,6 +6,9 @@ import { motion } from "framer-motion";
 import { SiteHeader } from "@/components/SiteHeader";
 import { NewsletterForm } from "@/components/NewsletterForm";
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+const asset = (path: string) => `${basePath}${path}`;
+
 const stats = [
   { value: "40+", label: "Years advancing aviation safety" },
   { value: "90%+", label: "Pitot probe configurations covered" },
@@ -90,22 +93,22 @@ const timeline = [
 ];
 
 const galleryImages = [
-  { src: "/assets/1.jpg", alt: "PitotShield V2™ SmartCover™ product image 1" },
-  { src: "/assets/2.jpeg", alt: "PitotShield V2™ SmartCover™ product image 2" },
-  { src: "/assets/3.jpg", alt: "PitotShield V2™ SmartCover™ product image 3" },
-  { src: "/assets/4.jpg", alt: "PitotShield V2™ SmartCover™ product image 4" },
-  { src: "/assets/5.jpg", alt: "PitotShield V2™ SmartCover™ product image 5" },
-  { src: "/assets/6.jpg", alt: "PitotShield V2™ SmartCover™ product image 6" },
-  { src: "/assets/7.jpeg", alt: "PitotShield V2™ SmartCover™ product image 7" },
+  { src: asset("/assets/1.jpg"), alt: "PitotShield V2™ SmartCover™ product image 1" },
+  { src: asset("/assets/2.jpeg"), alt: "PitotShield V2™ SmartCover™ product image 2" },
+  { src: asset("/assets/3.jpg"), alt: "PitotShield V2™ SmartCover™ product image 3" },
+  { src: asset("/assets/4.jpg"), alt: "PitotShield V2™ SmartCover™ product image 4" },
+  { src: asset("/assets/5.jpg"), alt: "PitotShield V2™ SmartCover™ product image 5" },
+  { src: asset("/assets/6.jpg"), alt: "PitotShield V2™ SmartCover™ product image 6" },
+  { src: asset("/assets/7.jpeg"), alt: "PitotShield V2™ SmartCover™ product image 7" },
 ];
 
 const productShowcase = [
-  { src: "/assets/psv2-aircraft-hanger.jpg", alt: "PitotShield V2™ SmartCover™ (PSV2) installed on aircraft in hangar" },
-  { src: "/assets/psv2-aircraft-phenom.jpg", alt: "PitotShield V2™ SmartCover™ (PSV2) on Embraer Phenom aircraft" },
-  { src: "/assets/psv2-kit.jpg", alt: "PitotShield V2™ SmartCover™ (PSV2) kit and components" },
-  { src: "/assets/psv2-packaging.jpg", alt: "PitotShield V2™ SmartCover™ (PSV2) packaging and storage" },
-  { src: "/assets/psv2-streamer-vertical.jpg", alt: "PitotShield V2™ SmartCover™ (PSV2) Remove Before Flight streamer" },
-  { src: "/assets/psv2-ends-comparison.jpg", alt: "PitotShield V2™ SmartCover™ (PSV2) end comparison view" },
+  { src: asset("/assets/psv2-aircraft-hanger.jpg"), alt: "PitotShield V2™ SmartCover™ (PSV2) installed on aircraft in hangar" },
+  { src: asset("/assets/psv2-aircraft-phenom.jpg"), alt: "PitotShield V2™ SmartCover™ (PSV2) on Embraer Phenom aircraft" },
+  { src: asset("/assets/psv2-kit.jpg"), alt: "PitotShield V2™ SmartCover™ (PSV2) kit and components" },
+  { src: asset("/assets/psv2-packaging.jpg"), alt: "PitotShield V2™ SmartCover™ (PSV2) packaging and storage" },
+  { src: asset("/assets/psv2-streamer-vertical.jpg"), alt: "PitotShield V2™ SmartCover™ (PSV2) Remove Before Flight streamer" },
+  { src: asset("/assets/psv2-ends-comparison.jpg"), alt: "PitotShield V2™ SmartCover™ (PSV2) end comparison view" },
 ];
 
 const technicalSpecs = [
@@ -124,7 +127,7 @@ const procurementSupport = [
   "Training assets for maintenance and flight departments",
 ];
 
-const partnerLogos = [{ src: "/assets/logo-proponent.svg", alt: "Proponent" }];
+const partnerLogos = [{ src: asset("/assets/logo-proponent.svg"), alt: "Proponent" }];
 
 const distributorGroups = [
   {
@@ -160,17 +163,17 @@ const documentSheets = [
   {
     title: "PitotShield V2™ Item List Price (Feb. 2025)",
     description: "Standard, Short, and Large Fit pricing plus executive fly-away packages.",
-    src: "/assets/page-1.jpeg",
+    src: asset("/assets/page-1.jpeg"),
   },
   {
     title: "PitotShield V2™ Accessories & Service Components",
     description: "Accessory, service component, and retail packaging catalog with list pricing.",
-    src: "/assets/page-2.jpeg",
+    src: asset("/assets/page-2.jpeg"),
   },
   {
     title: "PitotShield V2™ Document Library",
     description: "Download spec sheets, catalogs, and instruction manuals from DeGroff.",
-    src: "/assets/page-3.jpeg",
+    src: asset("/assets/page-3.jpeg"),
   },
 ];
 
@@ -281,7 +284,7 @@ export default function Home() {
               className="relative hidden aspect-square rounded-[32px] border border-brand/10 bg-brand-soft/60 shadow-soft lg:block"
             >
               <Image
-                src="/assets/psv2-kit.jpg"
+                src={asset("/assets/psv2-kit.jpg")}
                 alt="PitotShield V2™ SmartCover™ (PSV2) kit and components"
                 fill
                 className="rounded-[32px] object-cover"
@@ -334,8 +337,8 @@ export default function Home() {
             </motion.div>
             <div className="flex flex-col gap-6 rounded-3xl border border-brand/10 bg-white p-6 shadow-soft lg:col-span-2">
               <div className="relative w-full overflow-hidden rounded-2xl border border-brand/10">
-                <video className="w-full" controls preload="metadata" poster="/assets/hero-main.jpg">
-                  <source src="/assets/psv2-demo.mp4" type="video/mp4" />
+                <video className="w-full" controls preload="metadata" poster={asset("/assets/hero-main.jpg")}>
+                  <source src={asset("/assets/psv2-demo.mp4")} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
               </div>
@@ -767,7 +770,7 @@ export default function Home() {
                 </p>
                 <div className="mt-8 max-w-sm">
                   <Image
-                    src="/assets/footer-badges.png"
+                    src={asset("/assets/footer-badges.png")}
                     alt="DeGroff Aviation Technologies memberships and certifications"
                     width={360}
                     height={120}

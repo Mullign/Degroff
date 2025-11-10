@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
 const DEPLOY_URL = "https://mullign.github.io/Degroff";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
   description:
     "Discover the PitotShield V2™ SmartCover™ (PSV2) — the auto-releasing pitot tube cover engineered to stop Covered Pitot Events (COPEs) and protect mission-critical operations.",
   icons: {
-    icon: "/favicon.ico",
+    icon: `${basePath || ""}/favicon.ico`,
   },
   openGraph: {
     title: "PitotShield V2™ SmartCover™ (PSV2)",

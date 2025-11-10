@@ -13,6 +13,9 @@ const NAV_LINKS = [
   { label: "Contact", href: "#contact" },
 ];
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+const asset = (path: string) => `${basePath}${path}`;
+
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -37,7 +40,7 @@ export function SiteHeader() {
     <header className={headerClasses}>
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-4 sm:px-8">
         <a href="#hero" className="flex items-center gap-3">
-          <Image src="/assets/degroff-logo.png" alt="DeGroff Aviation Technologies" width={220} height={88} priority />
+          <Image src={asset("/assets/degroff-logo.png")} alt="DeGroff Aviation Technologies" width={220} height={88} priority />
         </a>
         <nav
           className={`hidden items-center gap-8 text-sm font-medium text-brand-dark/70 lg:flex ${
