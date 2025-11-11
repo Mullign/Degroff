@@ -61,17 +61,24 @@ const featureCards = [
   },
 ];
 
-const compatibility = [
-  "Airbus",
-  "Boeing",
-  "Bombardier",
-  "Cessna",
-  "Embraer",
-  "HondaJet",
-  "Gulfstream",
-  "Learjet",
-  "Defense Operators",
-  "And More",
+type CompatibilityItem = {
+  name: string;
+  logo?: string;
+  width?: number;
+  height?: number;
+};
+
+const compatibility: CompatibilityItem[] = [
+  { name: "Airbus", logo: asset("/assets/AIRBUS_Blue.png"), width: 180, height: 60 },
+  { name: "Boeing", logo: asset("/assets/Logo-Boeing.png"), width: 200, height: 60 },
+  { name: "Bombardier", logo: asset("/assets/Bombardier-Logo.jpg"), width: 200, height: 60 },
+  { name: "Cessna", logo: asset("/assets/cessna.webp"), width: 160, height: 60 },
+  { name: "Embraer", logo: asset("/assets/embraer.svg"), width: 200, height: 60 },
+  { name: "HondaJet", logo: asset("/assets/HondaJet_Large_Black2011_Logo.jpg"), width: 160, height: 60 },
+  { name: "Gulfstream", logo: asset("/assets/Gulfstream_Aerospace_logo.svg.png"), width: 200, height: 60 },
+  { name: "Learjet", logo: asset("/assets/Bombardier-Learjet.svg.png"), width: 200, height: 60 },
+  { name: "Defense Operators" },
+  { name: "And More" },
 ];
 
 const timeline = [
@@ -159,23 +166,67 @@ const distributorGroups = [
   },
 ];
 
-const documentSheets = [
+type DocumentSheet = {
+  title: string;
+  description: string;
+  src: string;
+  preview: string;
+  type: "image" | "pdf";
+};
+
+const documentSheets: DocumentSheet[] = [
   {
     title: "PitotShield V2™ Item List Price (Feb. 2025)",
     description: "Standard, Short, and Large Fit pricing plus executive fly-away packages.",
     src: asset("/assets/page-1.jpeg"),
+    preview: asset("/assets/page-1.jpeg"),
+    type: "image",
   },
   {
     title: "PitotShield V2™ Accessories & Service Components",
     description: "Accessory, service component, and retail packaging catalog with list pricing.",
     src: asset("/assets/page-2.jpeg"),
+    preview: asset("/assets/page-2.jpeg"),
+    type: "image",
   },
   {
     title: "PitotShield V2™ Document Library",
     description: "Download spec sheets, catalogs, and instruction manuals from DeGroff.",
     src: asset("/assets/page-3.jpeg"),
+    preview: asset("/assets/page-3.jpeg"),
+    type: "image",
+  },
+  {
+    title: "PitotShield V2™ Operations Manual",
+    description: "Comprehensive PSV2™ SmartCover™ manual for maintenance and training personnel.",
+    src: asset("/docs/pitotshield-v2-manual.pdf"),
+    preview: asset("/assets/psv2-intro-sheet.jpg"),
+    type: "pdf",
+  },
+  {
+    title: "PitotShield V2™ Safety & Compliance",
+    description: "Regulatory compliance guidance, safety data, and operational standards for PSV2™.",
+    src: asset("/docs/pitotshield-v2-safety-compliance.pdf"),
+    preview: asset("/assets/psv2-structural-overview.jpg"),
+    type: "pdf",
+  },
+  {
+    title: "PitotShield V2™ Technical Spec Sheet",
+    description: "Detailed specifications, materials, activation timing, and dimensional callouts.",
+    src: asset("/docs/pitotshield-v2-spec-sheet.pdf"),
+    preview: asset("/assets/psv2-spec-sheet.jpg"),
+    type: "pdf",
+  },
+  {
+    title: "PitotShield V2™ Installation Guide",
+    description: "Step-by-step PSV2™ installation instructions with visual references.",
+    src: asset("/docs/pitotshield-v2-installation-guide.pdf"),
+    preview: asset("/assets/pitotshield-v2-installation-guide.jpg"),
+    type: "pdf",
   },
 ];
+
+const technicalDocuments = documentSheets.filter((doc) => doc.type === "pdf");
 
 const SectionHeader = ({ badge, title, lead }: { badge: string; title: string; lead: string }) => (
   <motion.div
@@ -217,9 +268,20 @@ const ContactDetails = () => (
       </a>
       <a
         className="inline-flex items-center justify-center rounded-full border border-brand/20 px-5 py-3 text-sm font-semibold text-brand transition hover:border-brand hover:text-brand-dark"
-        href="https://www.linkedin.com/company/degroff-aviation-technologies/"
+        href="https://www.linkedin.com/company/degroff-aviation-technology/posts/?feedView=all"
+        target="_blank"
+        rel="noreferrer"
       >
         Follow on LinkedIn
+      </a>
+      <a
+        className="inline-flex items-center justify-center gap-2 rounded-full border border-brand/20 px-5 py-3 text-sm font-semibold text-brand transition hover:border-brand hover:text-brand-dark"
+        href="https://www.facebook.com/profile.php?id=61583542143823"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <Image src={asset("/assets/facebook.svg")} alt="" width={16} height={16} />
+        Follow on Facebook
       </a>
     </div>
   </div>
@@ -229,6 +291,7 @@ export default function Home() {
   const year = new Date().getFullYear();
   const timelineItems = useMemo(() => timeline, []);
   const [activeDocumentIndex, setActiveDocumentIndex] = useState<number | null>(null);
+  const activeDocument = activeDocumentIndex !== null ? documentSheets[activeDocumentIndex] : null;
 
   const handleDocumentClose = () => setActiveDocumentIndex(null);
 
@@ -512,14 +575,14 @@ export default function Home() {
                 <ul className="mt-6 grid gap-2 text-sm font-medium text-brand-dark">
                   {compatibility.map((item, index) => (
                     <motion.li
-                      key={item}
+                      key={item.name}
                       initial={{ opacity: 0, x: 24 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true, amount: 0.4 }}
                       transition={{ duration: 0.35, ease: "easeOut", delay: index * 0.03 }}
                       className="rounded-xl border border-brand/10 px-4 py-3 text-center"
                     >
-                      {item}
+                      {item.name}
                     </motion.li>
                   ))}
                 </ul>
@@ -532,12 +595,31 @@ export default function Home() {
         <section aria-label="Fleet coverage marquee" className="bg-brand/5 py-4">
           <div className="overflow-hidden">
             <div className="flex animate-marquee whitespace-nowrap text-xs font-semibold uppercase tracking-[0.32em] text-brand-dark/60">
-              {compatibility.concat(compatibility).map((item, index) => (
-                <span key={`${item}-${index}`} className="mx-8 inline-flex items-center gap-4">
-                  {item}
-                  <span className="text-brand/30">•</span>
-                </span>
-              ))}
+              {compatibility.concat(compatibility).map((item, index) => {
+                const key = `${item.name}-${index}`;
+                return (
+                  <span key={key} className="mx-8 inline-flex items-center gap-4">
+                    {item.logo ? (
+                      <span className="flex items-center gap-3">
+                        <span className="flex items-center">
+                          <img
+                            src={item.logo}
+                            alt={`${item.name} logo`}
+                            width={item.width ?? 160}
+                            height={item.height ?? 60}
+                            className="h-8 w-auto object-contain"
+                            loading="lazy"
+                          />
+                        </span>
+                        <span>{item.name}</span>
+                      </span>
+                    ) : (
+                      item.name
+                    )}
+                    <span className="text-brand/30">•</span>
+                  </span>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -626,6 +708,41 @@ export default function Home() {
                 </motion.div>
               ))}
             </div>
+            <div className="mt-14 overflow-hidden rounded-3xl border border-brand/10 bg-white shadow-soft">
+              <div className="border-b border-brand/10 bg-brand/5 px-6 py-4">
+                <h3 className="text-sm font-semibold uppercase tracking-[0.28em] text-brand">Technical Documents</h3>
+              </div>
+              <div className="divide-y divide-brand/10">
+                {technicalDocuments.map((doc) => (
+                  <div
+                    key={doc.title}
+                    className="flex flex-col gap-4 px-6 py-5 sm:flex-row sm:items-center sm:justify-between"
+                  >
+                    <div>
+                      <h4 className="text-sm font-semibold text-brand-dark">{doc.title}</h4>
+                      <p className="mt-1 text-xs text-brand-dark/60">{doc.description}</p>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <a
+                        href={doc.src}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center justify-center rounded-full border border-brand/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-brand transition hover:border-brand hover:text-brand-dark"
+                      >
+                        View
+                      </a>
+                      <a
+                        href={doc.src}
+                        download
+                        className="inline-flex items-center justify-center rounded-full bg-brand px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white shadow-soft transition hover:bg-brand-dark"
+                      >
+                        Download
+                      </a>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
 
@@ -662,7 +779,10 @@ export default function Home() {
                   ))}
                 </ul>
                 <div className="mt-10 grid gap-4 sm:grid-cols-2">
-                  {documentSheets.map((doc, index) => (
+                  {documentSheets
+                    .map((doc, index) => ({ doc, index }))
+                    .filter(({ doc }) => doc.type === "image")
+                    .map(({ doc, index }) => (
                     <motion.button
                       key={doc.title}
                       type="button"
@@ -674,7 +794,7 @@ export default function Home() {
                       className="flex items-start gap-4 rounded-2xl border border-brand/10 bg-white p-4 text-left shadow-soft transition hover:-translate-y-1 hover:border-brand/30 hover:shadow-lifted"
                     >
                       <div className="relative h-20 w-16 overflow-hidden rounded-lg border border-brand/10">
-                        <Image src={doc.src} alt={doc.title} fill className="object-cover" />
+                        <Image src={doc.preview} alt={doc.title} fill className="object-cover" />
                       </div>
                       <div className="space-y-1">
                         <h4 className="text-sm font-semibold text-brand-dark">{doc.title}</h4>
@@ -682,7 +802,7 @@ export default function Home() {
                         <span className="text-xs font-semibold text-brand">View full sheet</span>
                       </div>
                     </motion.button>
-                  ))}
+                    ))}
                 </div>
                 <div className="mt-10 grid gap-6">
                   {distributorGroups.map((group) => (
@@ -719,11 +839,11 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.35 }}
                 transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
-                className="rounded-3xl border border-brand/10 bg-white p-8 text-center shadow-soft"
+                className="mx-auto h-fit max-w-sm rounded-3xl border border-brand/10 bg-white p-6 text-center shadow-soft"
               >
                 {partnerLogos.map((logo) => (
-                  <div key={logo.src} className="flex items-center justify-center rounded-2xl border border-brand/10 bg-brand/5 p-6">
-                    <Image src={logo.src} alt={logo.alt} width={220} height={120} />
+                  <div key={logo.src} className="flex items-center justify-center rounded-2xl border border-brand/10 bg-brand/5 p-4">
+                    <Image src={logo.src} alt={logo.alt} width={180} height={96} />
                   </div>
                 ))}
                 <div className="mt-8 grid gap-3">
@@ -781,7 +901,7 @@ export default function Home() {
             </div>
             <div className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-brand/10 pt-6 text-xs text-brand-dark/60">
               <p>
-                © {year} DeGroff Aviation Technologies. All rights reserved. Images and website design by DeGroff Designs.
+                © {year} DeGroff Aviation Technologies. All rights reserved. Website designed by John Russell and DeGroff.
               </p>
               <div className="flex flex-wrap items-center gap-4">
                 <a className="hover:text-brand" href="#hero">
@@ -793,17 +913,27 @@ export default function Home() {
                 <a className="hover:text-brand" href="https://mullign.github.io/Degroff/">
                   Live site
                 </a>
+                <a
+                  className="flex items-center gap-2 rounded-full border border-brand/10 px-3 py-1.5 text-brand-dark transition hover:border-brand hover:text-brand-dark"
+                  href="https://www.facebook.com/profile.php?id=61583542143823"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="DeGroff Aviation Technologies on Facebook"
+                >
+                  <Image src={asset("/assets/facebook.svg")} alt="" width={16} height={16} />
+                  <span className="text-xs font-semibold uppercase tracking-[0.2em]">Facebook</span>
+                </a>
               </div>
             </div>
           </div>
         </section>
       </main>
 
-      {activeDocumentIndex !== null && (
+      {activeDocument && (
         <div
           role="dialog"
           aria-modal="true"
-          aria-label={documentSheets[activeDocumentIndex].title}
+          aria-label={activeDocument.title}
           onClick={handleDocumentClose}
           className="fixed inset-0 z-50 grid place-items-center bg-brand-dark/25 px-4 backdrop-blur"
         >
@@ -812,7 +942,7 @@ export default function Home() {
             onClick={(event) => event.stopPropagation()}
           >
             <header className="flex items-center justify-between border-b border-brand/10 px-6 py-4">
-              <h3 className="text-lg font-semibold text-brand-dark">{documentSheets[activeDocumentIndex].title}</h3>
+              <h3 className="text-lg font-semibold text-brand-dark">{activeDocument.title}</h3>
               <button
                 type="button"
                 aria-label="Close document viewer"
@@ -823,20 +953,28 @@ export default function Home() {
               </button>
             </header>
             <div className="flex max-h-[70vh] items-center justify-center overflow-auto bg-brand-soft p-6">
-              <Image
-                src={documentSheets[activeDocumentIndex].src}
-                alt={documentSheets[activeDocumentIndex].title}
-                width={1200}
-                height={1554}
-                priority
-                className="h-auto w-full max-w-2xl rounded-2xl border border-brand/10 shadow-soft"
-              />
+              {activeDocument.type === "pdf" ? (
+                <iframe
+                  src={`${activeDocument.src}#view=FitH`}
+                  title={`${activeDocument.title} PDF`}
+                  className="h-[70vh] w-full rounded-2xl border border-brand/10 bg-white shadow-soft"
+                />
+              ) : (
+                <Image
+                  src={activeDocument.src}
+                  alt={activeDocument.title}
+                  width={1200}
+                  height={1554}
+                  priority
+                  className="h-auto w-full max-w-2xl rounded-2xl border border-brand/10 shadow-soft"
+                />
+              )}
             </div>
             <div className="flex items-center justify-end gap-4 border-t border-brand/10 px-6 py-4 text-sm font-semibold text-brand">
-              <a href={documentSheets[activeDocumentIndex].src} target="_blank" rel="noreferrer" className="hover:text-brand-dark">
+              <a href={activeDocument.src} target="_blank" rel="noreferrer" className="hover:text-brand-dark">
                 Open in new tab
               </a>
-              <a href={documentSheets[activeDocumentIndex].src} download className="hover:text-brand-dark">
+              <a href={activeDocument.src} download className="hover:text-brand-dark">
                 Download sheet
               </a>
             </div>
