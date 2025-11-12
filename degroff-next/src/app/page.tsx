@@ -82,10 +82,10 @@ const compatibility: CompatibilityItem[] = [
 ];
 
 const copesAlerts = [
-  "Prevent Covered Pitot Events (COPES) with PSV2™ SmartCover™",
+  "Prevent Covered Pitot Events (COPEs) with PSV2™ SmartCover™",
   "Auto-release technology disengages in minutes after pitot heat activation",
-  "PSV2™ eliminates COPES risks for commercial, business, and defense fleets",
-  "Request COPES mitigation support from DeGroff Aviation Technologies today",
+  "PSV2™ eliminates COPEs risks for commercial, business, and defense fleets",
+  "Request COPEs mitigation support from DeGroff Aviation Technologies today",
 ];
 
 const timeline = [
@@ -422,9 +422,6 @@ export default function Home() {
                 <div>
                   <h3 className="text-xl font-semibold text-brand-dark">Why teams choose PSV2™</h3>
                   <ul className="mt-4 space-y-3 text-sm text-brand-dark/70">
-                    <li className="flex gap-2">
-                      <span className="text-brand">•</span>Eliminates an entire COPE failure mode in under five minutes.
-                    </li>
                     <li className="flex gap-2">
                       <span className="text-brand">•</span>Reduces RTO risks from forgotten or fused pitot covers.
                     </li>
@@ -816,7 +813,7 @@ export default function Home() {
                   Fail-safe Pitot Cover Aims To Save Lives, Money
                 </h2>
                 <p className="mt-4 text-sm leading-relaxed text-brand-dark/70">
-                  Coverage from AIN highlights how the PSV2™ SmartCover™ leverages simple chemistry to prevent COPES, eliminate mission
+                  Coverage from AIN highlights how the PSV2™ SmartCover™ leverages simple chemistry to prevent COPEs, eliminate mission
                   delays, and protect flight crews worldwide.
                 </p>
                 <div className="mt-6 flex flex-wrap gap-4">
