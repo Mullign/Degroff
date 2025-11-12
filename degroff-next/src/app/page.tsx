@@ -1,7 +1,7 @@
 'use client';
 
 import Image from "next/image";
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import { motion } from "framer-motion";
 import { SiteHeader } from "@/components/SiteHeader";
 import { NewsletterForm } from "@/components/NewsletterForm";
@@ -81,6 +81,13 @@ const compatibility: CompatibilityItem[] = [
   { name: "And More" },
 ];
 
+const copesAlerts = [
+  "Prevent Covered Pitot Events (COPEs) with PSV2™ SmartCover™",
+  "Auto-release technology disengages in minutes after pitot heat activation",
+  "PSV2™ eliminates COPE risk for commercial, business, and defense fleets",
+  "Request PSV2™ deployment guidance from DeGroff Aviation Technologies today",
+];
+
 const timeline = [
   {
     phase: "Assess & Plan",
@@ -123,47 +130,8 @@ const technicalSpecs = [
   { label: "Activation", value: "Heat-activated auto-release after pitot heat engagement (2–5 minutes)" },
   { label: "Sizes", value: "Standard (V2), Short (V2-S), Large (V2-L)" },
   { label: "Streamer Options", value: "NAS Red (24 in) or High-Visibility Orange with reflective accent" },
-  { label: "Security", value: "Precision fit with isolation barriers, eyelets for RBF and optional lanyards" },
+  { label: "Security", value: "PitotShield V2™ SmartCover™ Universal-Fit Detaining Bridle" },
   { label: "Compliance", value: "Designed around FAA and IATA safety practices; ramp and shop friendly" },
-];
-
-const procurementSupport = [
-  "Regional stocking and rapid fulfillment",
-  "Fleet-wide rollout planning and forecasting",
-  "Technical data sheets and implementation SOPs",
-  "Training assets for maintenance and flight departments",
-];
-
-const partnerLogos = [{ src: asset("/assets/logo-proponent.svg"), alt: "Proponent" }];
-
-const distributorGroups = [
-  {
-    category: "General Aviation",
-    segments: [
-      { title: "U.S. Distributors", items: ["AeroPhoenix", "Jem Aero", "Aircraft Spruce", "Proponent"] },
-      {
-        title: "U.S. Linked Dealers",
-        items: ["Aircraft Spruce", "SkyGeek.com", "Cirrus Connection", "Wag Aero", "Chief Aircraft", "Sporty’s Pilot Shop"],
-      },
-      {
-        title: "International Dealers",
-        items: [
-          "Friebe Aero Luftfahrt Bedarf (Germany)",
-          "Transair UK Pilot Shop (United Kingdom)",
-          "Pooley’s Flight Equipment Ltd. (United Kingdom)",
-          "BuckerBook.com (Spain)",
-          "Flightstore (Australia)",
-        ],
-      },
-    ],
-  },
-  {
-    category: "Commercial & Bizjet",
-    segments: [
-      { title: "U.S. Distributors", items: ["Proponent"] },
-      { title: "International Distributors", items: ["Proponent"] },
-    ],
-  },
 ];
 
 type DocumentSheet = {
@@ -175,27 +143,6 @@ type DocumentSheet = {
 };
 
 const documentSheets: DocumentSheet[] = [
-  {
-    title: "PitotShield V2™ Item List Price (Feb. 2025)",
-    description: "Standard, Short, and Large Fit pricing plus executive fly-away packages.",
-    src: asset("/assets/page-1.jpeg"),
-    preview: asset("/assets/page-1.jpeg"),
-    type: "image",
-  },
-  {
-    title: "PitotShield V2™ Accessories & Service Components",
-    description: "Accessory, service component, and retail packaging catalog with list pricing.",
-    src: asset("/assets/page-2.jpeg"),
-    preview: asset("/assets/page-2.jpeg"),
-    type: "image",
-  },
-  {
-    title: "PitotShield V2™ Document Library",
-    description: "Download spec sheets, catalogs, and instruction manuals from DeGroff.",
-    src: asset("/assets/page-3.jpeg"),
-    preview: asset("/assets/page-3.jpeg"),
-    type: "image",
-  },
   {
     title: "PitotShield V2™ Operations Manual",
     description: "Comprehensive PSV2™ SmartCover™ manual for maintenance and training personnel.",
@@ -224,9 +171,23 @@ const documentSheets: DocumentSheet[] = [
     preview: asset("/assets/pitotshield-v2-installation-guide.jpg"),
     type: "pdf",
   },
+  {
+    title: "PitotShield V2™ Catalog (May 2025)",
+    description: "Comprehensive PSV2™ SmartCover™ product catalog with fit guides, accessories, and ordering references.",
+    src: asset("/docs/pitotshield-v2-catalog-05-25.pdf"),
+    preview: asset("/assets/psv2-packaging.jpg"),
+    type: "pdf",
+  },
 ];
 
 const technicalDocuments = documentSheets.filter((doc) => doc.type === "pdf");
+
+const proponentSupport = [
+  "Dedicated PSV2™ SmartCover™ sales and logistics specialists",
+  "Rapid-response quoting and fleet rollout coordination",
+  "Global inventory stocking with aerospace-grade fulfillment",
+  "Technical documentation and certification packets on demand",
+];
 
 const SectionHeader = ({ badge, title, lead }: { badge: string; title: string; lead: string }) => (
   <motion.div
@@ -290,15 +251,26 @@ const ContactDetails = () => (
 export default function Home() {
   const year = new Date().getFullYear();
   const timelineItems = useMemo(() => timeline, []);
-  const [activeDocumentIndex, setActiveDocumentIndex] = useState<number | null>(null);
-  const activeDocument = activeDocumentIndex !== null ? documentSheets[activeDocumentIndex] : null;
-
-  const handleDocumentClose = () => setActiveDocumentIndex(null);
 
   return (
     <>
       <SiteHeader />
       <main className="bg-brand-soft text-brand-dark">
+        {/* COPEs alert banner */}
+        <section aria-label="COPEs alert banner" className="relative overflow-hidden bg-red-600 text-white">
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-red-600 via-red-500/90 to-red-600 opacity-80" />
+          <div className="relative overflow-hidden">
+            <div className="flex animate-copesMarquee whitespace-nowrap text-xs font-semibold uppercase tracking-[0.32em] leading-6">
+              {copesAlerts.concat(copesAlerts, copesAlerts).map((message, index) => (
+                <span key={`${message}-${index}`} className="mx-12 flex items-center gap-4">
+                  <span>{message}</span>
+                  <span className="text-white/50">•</span>
+                </span>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Hero */}
         <section id="hero" className="relative overflow-hidden bg-white">
           <div className="pointer-events-none absolute -left-24 top-16 h-72 w-72 rounded-full bg-brand/20 blur-3xl animate-gradient" />
@@ -746,119 +718,87 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Procurement */}
-        <section id="procurement" className="py-24 sm:py-28">
+        {/* Proponent Sales */}
+        <section id="proponent" className="py-24 sm:py-28">
           <div className="mx-auto max-w-6xl px-6">
-            <div className="grid gap-10 lg:grid-cols-[minmax(0,2fr)_minmax(260px,1fr)]">
+            <div className="grid gap-10 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)] lg:items-center">
               <motion.div
-                initial={{ opacity: 0, y: 32 }}
+                initial={{ opacity: 0, y: 28 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.35 }}
                 transition={{ duration: 0.45, ease: "easeOut" }}
                 className="rounded-3xl border border-brand/10 bg-white p-10 shadow-soft"
               >
                 <span className="inline-flex items-center justify-center rounded-full border border-brand/15 bg-brand/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.32em] text-brand">
-                  Purchasing & Logistics
+                  Proponent Sales
                 </span>
                 <h2 className="mt-6 text-3xl font-semibold tracking-tight text-brand-dark sm:text-4xl">
-                  For purchasing & pricing information, contact our exclusive distributor: Proponent
+                  PSV2™ procurement through Proponent
                 </h2>
-                <p className="mt-4 text-sm leading-relaxed text-brand-dark/70">
-                  Email {" "}
-                  <a href="mailto:support@proponent.com" className="font-semibold text-brand hover:text-brand-dark">
-                    support@proponent.com
-                  </a>{" "}
-                  to coordinate your PSV2™ SmartCover™ acquisition and fleet deployment planning.
-                </p>
+                <div className="mt-4 space-y-3 text-sm leading-relaxed text-brand-dark/70">
+                  <p>
+                    Proponent is the exclusive distribution partner for PitotShield V2™ SmartCover™ (PSV2), supporting commercial,
+                    business, and defense aviation programs worldwide.
+                  </p>
+                  <p>
+                    Prefer to work directly with the manufacturer? Contact the DeGroff Aviation Technologies sales team at{" "}
+                    <a href="mailto:info@degroffaviation.com" className="font-semibold text-brand hover:text-brand-dark">
+                      info@degroffaviation.com
+                    </a>{" "}
+                    and we&apos;ll coordinate your PSV2™ deployment alongside Proponent.
+                  </p>
+                </div>
                 <ul className="mt-6 grid gap-3 text-sm text-brand-dark/70">
-                  {procurementSupport.map((item) => (
+                  {proponentSupport.map((item) => (
                     <li key={item} className="flex gap-2">
                       <span className="text-brand">•</span>
                       {item}
                     </li>
                   ))}
                 </ul>
-                <div className="mt-10 grid gap-4 sm:grid-cols-2">
-                  {documentSheets
-                    .map((doc, index) => ({ doc, index }))
-                    .filter(({ doc }) => doc.type === "image")
-                    .map(({ doc, index }) => (
-                    <motion.button
-                      key={doc.title}
-                      type="button"
-                      onClick={() => setActiveDocumentIndex(index)}
-                      initial={{ opacity: 0, y: 18 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, amount: 0.4 }}
-                      transition={{ duration: 0.35, ease: "easeOut", delay: index * 0.05 }}
-                      className="flex items-start gap-4 rounded-2xl border border-brand/10 bg-white p-4 text-left shadow-soft transition hover:-translate-y-1 hover:border-brand/30 hover:shadow-lifted"
-                    >
-                      <div className="relative h-20 w-16 overflow-hidden rounded-lg border border-brand/10">
-                        <Image src={doc.preview} alt={doc.title} fill className="object-cover" />
-                      </div>
-                      <div className="space-y-1">
-                        <h4 className="text-sm font-semibold text-brand-dark">{doc.title}</h4>
-                        <p className="text-xs leading-relaxed text-brand-dark/60">{doc.description}</p>
-                        <span className="text-xs font-semibold text-brand">View full sheet</span>
-                      </div>
-                    </motion.button>
-                    ))}
-                </div>
-                <div className="mt-10 grid gap-6">
-                  {distributorGroups.map((group) => (
-                    <div key={group.category}>
-                      <h3 className="text-lg font-semibold text-brand-dark">{group.category}</h3>
-                      <div className="mt-4 grid gap-4 sm:grid-cols-2">
-                        {group.segments.map((segment, segmentIndex) => (
-                          <motion.div
-                            key={segment.title}
-                            initial={{ opacity: 0, y: 18 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, amount: 0.35 }}
-                            transition={{ duration: 0.35, ease: "easeOut", delay: segmentIndex * 0.05 }}
-                            className="rounded-2xl border border-brand/10 bg-white p-4 shadow-soft"
-                          >
-                            <h4 className="text-sm font-semibold text-brand-dark">{segment.title}</h4>
-                            <ul className="mt-3 space-y-2 text-sm text-brand-dark/70">
-                              {segment.items.map((entry) => (
-                                <li key={entry} className="flex gap-2">
-                                  <span className="text-brand">–</span>
-                                  {entry}
-                                </li>
-                              ))}
-                            </ul>
-                          </motion.div>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: 32 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.35 }}
-                transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
-                className="mx-auto h-fit max-w-sm rounded-3xl border border-brand/10 bg-white p-6 text-center shadow-soft"
-              >
-                {partnerLogos.map((logo) => (
-                  <div key={logo.src} className="flex items-center justify-center rounded-2xl border border-brand/10 bg-brand/5 p-4">
-                    <Image src={logo.src} alt={logo.alt} width={180} height={96} />
-                  </div>
-                ))}
-                <div className="mt-8 grid gap-3">
+                <div className="mt-8 flex flex-wrap gap-4">
                   <a
-                    className="inline-flex items-center justify-center rounded-full bg-brand px-5 py-3 text-sm font-semibold text-white shadow-soft transition hover:bg-brand-dark"
+                    className="inline-flex items-center justify-center rounded-full bg-brand px-6 py-3 text-sm font-semibold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-brand-dark"
                     href="mailto:support@proponent.com"
                   >
-                    Contact Proponent
+                    Contact Proponent Sales
                   </a>
                   <a
-                    className="inline-flex items-center justify-center rounded-full border border-brand/20 px-5 py-3 text-sm font-semibold text-brand transition hover:border-brand hover:text-brand-dark"
+                    className="inline-flex items-center justify-center rounded-full border border-brand/20 px-6 py-3 text-sm font-semibold text-brand transition hover:border-brand hover:text-brand-dark"
                     href="https://www.proponent.com/"
+                    target="_blank"
+                    rel="noreferrer"
                   >
                     Visit proponent.com
                   </a>
+                  <a
+                    className="inline-flex items-center justify-center rounded-full border border-brand/20 px-6 py-3 text-sm font-semibold text-brand transition hover:border-brand hover:text-brand-dark"
+                    href="mailto:info@degroffaviation.com"
+                  >
+                    Contact DeGroff Sales
+                  </a>
+                </div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, amount: 0.4 }}
+                transition={{ duration: 0.45, ease: "easeOut", delay: 0.1 }}
+                className="relative mx-auto flex w-full max-w-sm flex-col items-center gap-6 rounded-3xl border border-brand/10 bg-white p-8 text-center shadow-soft"
+              >
+                <div className="flex items-center justify-center rounded-2xl border border-brand/10 bg-brand/5 p-6">
+                  <Image src={asset("/assets/logo-proponent.svg")} alt="Proponent logo" width={200} height={120} />
+                </div>
+                <div className="space-y-2 text-sm text-brand-dark/70">
+                  <p className="font-semibold text-brand-dark">Primary Sales Desk</p>
+                  <a href="mailto:support@proponent.com" className="font-semibold text-brand hover:text-brand-dark">
+                    support@proponent.com
+                  </a>
+                  <p>Global support for PSV2™ SmartCover™ procurement & logistics.</p>
+                </div>
+                <div className="space-y-2 text-sm text-brand-dark/60">
+                  <p className="font-semibold text-brand-dark">Locations</p>
+                  <p>Los Angeles • Amsterdam • Singapore</p>
                 </div>
               </motion.div>
             </div>
@@ -928,59 +868,6 @@ export default function Home() {
           </div>
         </section>
       </main>
-
-      {activeDocument && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          aria-label={activeDocument.title}
-          onClick={handleDocumentClose}
-          className="fixed inset-0 z-50 grid place-items-center bg-brand-dark/25 px-4 backdrop-blur"
-        >
-          <div
-            className="relative w-full max-w-4xl overflow-hidden rounded-3xl border border-brand/10 bg-white shadow-lifted"
-            onClick={(event) => event.stopPropagation()}
-          >
-            <header className="flex items-center justify-between border-b border-brand/10 px-6 py-4">
-              <h3 className="text-lg font-semibold text-brand-dark">{activeDocument.title}</h3>
-              <button
-                type="button"
-                aria-label="Close document viewer"
-                onClick={handleDocumentClose}
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-brand/20 text-brand transition hover:border-brand hover:text-brand-dark"
-              >
-                ×
-              </button>
-            </header>
-            <div className="flex max-h-[70vh] items-center justify-center overflow-auto bg-brand-soft p-6">
-              {activeDocument.type === "pdf" ? (
-                <iframe
-                  src={`${activeDocument.src}#view=FitH`}
-                  title={`${activeDocument.title} PDF`}
-                  className="h-[70vh] w-full rounded-2xl border border-brand/10 bg-white shadow-soft"
-                />
-              ) : (
-                <Image
-                  src={activeDocument.src}
-                  alt={activeDocument.title}
-                  width={1200}
-                  height={1554}
-                  priority
-                  className="h-auto w-full max-w-2xl rounded-2xl border border-brand/10 shadow-soft"
-                />
-              )}
-            </div>
-            <div className="flex items-center justify-end gap-4 border-t border-brand/10 px-6 py-4 text-sm font-semibold text-brand">
-              <a href={activeDocument.src} target="_blank" rel="noreferrer" className="hover:text-brand-dark">
-                Open in new tab
-              </a>
-              <a href={activeDocument.src} download className="hover:text-brand-dark">
-                Download sheet
-              </a>
-            </div>
-          </div>
-        </div>
-      )}
     </>
   );
 }

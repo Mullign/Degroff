@@ -26,6 +26,10 @@ module.exports = {
           "0%": { transform: "translateX(0%)" },
           "100%": { transform: "translateX(-50%)" },
         },
+            copesMarquee: {
+              "0%": { transform: "translateX(0%)" },
+              "100%": { transform: "translateX(-100%)" },
+            },
         gradient: {
           "0%, 100%": { transform: "translate(-12%, -12%) scale(1)" },
           "50%": { transform: "translate(10%, 10%) scale(1.08)" },
@@ -37,6 +41,7 @@ module.exports = {
       },
       animation: {
         marquee: "marquee 16s linear infinite",
+            copesMarquee: "copesMarquee 22s linear infinite",
         gradient: "gradient 20s ease-in-out infinite",
         float: "float 6s ease-in-out infinite",
       },
