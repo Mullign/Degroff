@@ -1,15 +1,18 @@
 import type { NextConfig } from "next";
 
-const repoName = "Degroff";
-const isProd = process.env.NODE_ENV === "production";
+const basePathEnv = process.env.NEXT_PUBLIC_BASE_PATH;
+const assetPrefixEnv = process.env.NEXT_PUBLIC_ASSET_PREFIX ?? basePathEnv;
+
+const normalize = (value?: string) => {
+  if (!value) return undefined;
+  if (value === "/") return undefined;
+  return value.startsWith("/") ? value : `/${value}`;
+};
 
 const nextConfig: NextConfig = {
   output: "export",
-  assetPrefix: isProd ? `/${repoName}` : undefined,
-  basePath: isProd ? `/${repoName}` : undefined,
-  env: {
-    NEXT_PUBLIC_BASE_PATH: isProd ? `/${repoName}` : "",
-  },
+  basePath: normalize(basePathEnv),
+  assetPrefix: normalize(assetPrefixEnv),
   images: {
     unoptimized: true,
   },

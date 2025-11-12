@@ -2,8 +2,21 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const DEPLOY_URL = "https://mullign.github.io/Degroff";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://pitotshields.com";
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+const withBasePath = (path: string) => `${basePath}${path}`;
+const absoluteUrl = (path: string) => {
+  const relative = withBasePath(path);
+  return new URL(relative, SITE_URL).toString();
+};
+const metadataBase = (() => {
+  try {
+    return new URL(SITE_URL);
+  } catch (error) {
+    console.warn("Invalid NEXT_PUBLIC_SITE_URL, falling back to default metadataBase.");
+    return new URL("https://pitotshields.com");
+  }
+})();
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,22 +29,22 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(DEPLOY_URL),
+  metadataBase,
   title: "PitotShield V2™ SmartCover™ (PSV2) | DeGroff Aviation Technologies",
   description:
     "Discover the PitotShield V2™ SmartCover™ (PSV2) — the auto-releasing pitot tube cover engineered to stop Covered Pitot Events (COPEs) and protect mission-critical operations.",
   icons: {
-    icon: `${basePath || ""}/favicon.ico`,
+    icon: withBasePath("/favicon.ico"),
   },
   openGraph: {
     title: "PitotShield V2™ SmartCover™ (PSV2)",
     description:
       "Heat-activated, auto-releasing pitot tube cover engineered to eliminate COPEs and protect aircraft operations.",
-    url: DEPLOY_URL,
+    url: SITE_URL,
     siteName: "DeGroff Aviation Technologies",
     images: [
       {
-        url: "/assets/hero-main.jpg",
+        url: absoluteUrl("/assets/hero-main.jpg"),
         width: 1600,
         height: 840,
         alt: "PitotShield V2™ SmartCover™ (PSV2) product hero",
@@ -45,7 +58,7 @@ export const metadata: Metadata = {
     title: "PitotShield V2™ SmartCover™ (PSV2)",
     description:
       "Heat-activated, auto-releasing pitot tube cover engineered to eliminate COPEs and protect aircraft operations.",
-    images: ["/assets/hero-main.jpg"],
+    images: [absoluteUrl("/assets/hero-main.jpg")],
   },
 };
 
