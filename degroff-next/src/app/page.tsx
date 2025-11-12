@@ -873,24 +873,17 @@ export default function Home() {
             <div className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-brand/10 pt-6 text-xs text-brand-dark/60">
               <p>© {year} DeGroff Aviation Technologies. All rights reserved. Website designed by Russell and DeGroff.</p>
               <div className="flex flex-wrap items-center gap-4">
-                <a className="hover:text-brand" href="#hero">
-                  Back to top
+                <a
+                  className="inline-flex items-center justify-center rounded-full border border-brand/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-brand transition hover:border-brand hover:text-brand-dark"
+                  href="#hero"
+                >
+                  Back to Top
                 </a>
                 <a className="hover:text-brand" href="mailto:info@degroffaviation.com">
                   Request documentation
                 </a>
                 <a className="hover:text-brand" href="https://mullign.github.io/Degroff/">
                   Live site
-          </a>
-          <a
-                  className="flex items-center gap-2 rounded-full border border-brand/10 px-3 py-1.5 text-brand-dark transition hover:border-brand hover:text-brand-dark"
-                  href="https://www.facebook.com/profile.php?id=61583542143823"
-            target="_blank"
-                  rel="noreferrer"
-                  aria-label="DeGroff Aviation Technologies on Facebook"
-          >
-                  <Image src={asset("/assets/facebook.svg")} alt="" width={16} height={16} />
-                  <span className="text-xs font-semibold uppercase tracking-[0.2em]">Facebook</span>
           </a>
         </div>
             </div>
