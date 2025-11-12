@@ -49,7 +49,7 @@ const featureCards = [
   },
   {
     title: "FOD-Free, Fabric-Free",
-    copy: "One-piece polypropylene body with no fabric to unravel, reducing FOD risk across flight lines, hangars, and ramps.",
+    copy: "One-piece polypropylene body with no fabric to unravel, reducing FOD risks across flight lines, hangars, and ramps.",
   },
   {
     title: "Rapid Installation",
@@ -82,10 +82,10 @@ const compatibility: CompatibilityItem[] = [
 ];
 
 const copesAlerts = [
-  "Prevent Covered Pitot Events (COPEs) with PSV2™ SmartCover™",
+  "Prevent Covered Pitot Events (COPES) with PSV2™ SmartCover™",
   "Auto-release technology disengages in minutes after pitot heat activation",
-  "PSV2™ eliminates COPE risk for commercial, business, and defense fleets",
-  "Request PSV2™ deployment guidance from DeGroff Aviation Technologies today",
+  "PSV2™ eliminates COPES risks for commercial, business, and defense fleets",
+  "Request COPES mitigation support from DeGroff Aviation Technologies today",
 ];
 
 const timeline = [
@@ -153,7 +153,7 @@ const documentSheets: DocumentSheet[] = [
   {
     title: "PitotShield V2™ Safety & Compliance",
     description: "Regulatory compliance guidance, safety data, and operational standards for PSV2™.",
-    src: asset("/docs/pitotshield-v2-safety-compliance.pdf"),
+    src: asset("/docs/psv2-wp-marketing-version-w-all-econ.pdf"),
     preview: asset("/assets/psv2-structural-overview.jpg"),
     type: "pdf",
   },
@@ -162,13 +162,6 @@ const documentSheets: DocumentSheet[] = [
     description: "Detailed specifications, materials, activation timing, and dimensional callouts.",
     src: asset("/docs/pitotshield-v2-spec-sheet.pdf"),
     preview: asset("/assets/psv2-spec-sheet.jpg"),
-    type: "pdf",
-  },
-  {
-    title: "PitotShield V2™ Installation Guide",
-    description: "Step-by-step PSV2™ installation instructions with visual references.",
-    src: asset("/docs/pitotshield-v2-installation-guide.pdf"),
-    preview: asset("/assets/pitotshield-v2-installation-guide.jpg"),
     type: "pdf",
   },
   {
@@ -257,10 +250,10 @@ export default function Home() {
       <SiteHeader />
       <main className="bg-brand-soft text-brand-dark">
         {/* COPEs alert banner */}
-        <section aria-label="COPEs alert banner" className="relative overflow-hidden bg-red-600 text-white">
+        <section aria-label="COPEs alert banner" className="relative overflow-hidden bg-red-600 text-white py-3">
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-red-600 via-red-500/90 to-red-600 opacity-80" />
           <div className="relative overflow-hidden">
-            <div className="flex animate-copesMarquee whitespace-nowrap text-xs font-semibold uppercase tracking-[0.32em] leading-6">
+            <div className="flex animate-copesMarquee whitespace-nowrap text-sm font-semibold uppercase tracking-[0.32em] leading-7 md:text-base">
               {copesAlerts.concat(copesAlerts, copesAlerts).map((message, index) => (
                 <span key={`${message}-${index}`} className="mx-12 flex items-center gap-4">
                   <span>{message}</span>
@@ -318,7 +311,7 @@ export default function Home() {
               transition={{ duration: 0.6, ease: "easeOut" }}
               className="relative hidden aspect-square rounded-[32px] border border-brand/10 bg-brand-soft/60 shadow-soft lg:block"
             >
-              <Image
+        <Image
                 src={asset("/assets/psv2-kit.jpg")}
                 alt="PitotShield V2™ SmartCover™ (PSV2) kit and components"
                 fill
@@ -357,9 +350,8 @@ export default function Home() {
                 About DeGroff Aviation Technologies
               </h2>
               <p className="mt-6 text-base leading-relaxed text-brand-dark/70">
-                Since 1985, DeGroff Aviation Technologies has pioneered self-disengaging pitot probe covers. PitotShield V2™
-                SmartCover™ (PSV2) protects fleets around the world, reducing rejected takeoff incidents, preventing fouled probes, and
-                preserving operational tempo across commercial, business, and defense aviation.
+                Since 1985, DeGroff Aviation Technologies has brought together product development and pilot experience to create
+                high-quality aircraft safety solutions for corporate, commercial, and general aviation.
               </p>
               <div className="mt-8 grid gap-6">
                 {highlights.map((item) => (
@@ -372,7 +364,7 @@ export default function Home() {
             </motion.div>
             <div className="flex flex-col gap-6 rounded-3xl border border-brand/10 bg-white p-6 shadow-soft lg:col-span-2">
               <div className="relative w-full overflow-hidden rounded-2xl border border-brand/10">
-                <video className="w-full" controls preload="metadata" poster={asset("/assets/hero-main.jpg")}>
+                <video className="w-full" controls preload="metadata" poster={asset("/assets/Accessories.png")}>
                   <source src={asset("/assets/psv2-demo.mp4")} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
@@ -434,7 +426,7 @@ export default function Home() {
                       <span className="text-brand">•</span>Eliminates an entire COPE failure mode in under five minutes.
                     </li>
                     <li className="flex gap-2">
-                      <span className="text-brand">•</span>Reduces RTO risk from forgotten or fused pitot covers.
+                      <span className="text-brand">•</span>Reduces RTO risks from forgotten or fused pitot covers.
                     </li>
                     <li className="flex gap-2">
                       <span className="text-brand">•</span>Preserves accurate airspeed data for safer departures.
@@ -697,7 +689,7 @@ export default function Home() {
                     <div className="flex items-center gap-3">
                       <a
                         href={doc.src}
-                        target="_blank"
+              target="_blank"
                         rel="noreferrer"
                         className="inline-flex items-center justify-center rounded-full border border-brand/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-brand transition hover:border-brand hover:text-brand-dark"
                       >
@@ -744,10 +736,10 @@ export default function Home() {
                     Prefer to work directly with the manufacturer? Contact the DeGroff Aviation Technologies sales team at{" "}
                     <a href="mailto:info@degroffaviation.com" className="font-semibold text-brand hover:text-brand-dark">
                       info@degroffaviation.com
-                    </a>{" "}
+            </a>{" "}
                     and we&apos;ll coordinate your PSV2™ deployment alongside Proponent.
-                  </p>
-                </div>
+          </p>
+        </div>
                 <ul className="mt-6 grid gap-3 text-sm text-brand-dark/70">
                   {proponentSupport.map((item) => (
                     <li key={item} className="flex gap-2">
@@ -766,7 +758,7 @@ export default function Home() {
                   <a
                     className="inline-flex items-center justify-center rounded-full border border-brand/20 px-6 py-3 text-sm font-semibold text-brand transition hover:border-brand hover:text-brand-dark"
                     href="https://www.proponent.com/"
-                    target="_blank"
+            target="_blank"
                     rel="noreferrer"
                   >
                     Visit proponent.com
@@ -812,6 +804,48 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Community & News */}
+        <section className="bg-brand-soft py-16 text-brand-dark">
+          <div className="mx-auto max-w-6xl px-6">
+            <div className="grid gap-8 rounded-3xl border border-brand/10 bg-white p-10 shadow-soft lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] lg:items-center">
+              <div>
+                <span className="inline-flex items-center justify-center rounded-full border border-brand/15 bg-brand/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.32em] text-brand">
+                  Community & News
+                </span>
+                <h2 className="mt-6 text-3xl font-semibold tracking-tight text-brand-dark sm:text-4xl">
+                  Fail-safe Pitot Cover Aims To Save Lives, Money
+                </h2>
+                <p className="mt-4 text-sm leading-relaxed text-brand-dark/70">
+                  Coverage from AIN highlights how the PSV2™ SmartCover™ leverages simple chemistry to prevent COPES, eliminate mission
+                  delays, and protect flight crews worldwide.
+                </p>
+                <div className="mt-6 flex flex-wrap gap-4">
+                  <a
+                    className="inline-flex items-center justify-center rounded-full bg-brand px-5 py-3 text-sm font-semibold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-brand-dark"
+                    href="https://www.ainonline.com/aviation-news/aerospace/2025-10-15/fail-safe-pitot-cover-aims-save-lives-money"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Read the AIN Feature
+                  </a>
+                  <span className="text-xs uppercase tracking-[0.28em] text-brand-dark/60">
+                    Source: AIN Online — Fail-safe Pitot Cover Aims To Save Lives, Money (Oct 16, 2025)
+                  </span>
+                </div>
+              </div>
+              <div className="overflow-hidden rounded-3xl border border-brand/10 bg-brand-soft/60">
+                <Image
+                  src={asset("/assets/Steve Photo.jpg")}
+                  alt="Steven DeGroff showcasing PitotShield V2™ SmartCover™ at NBAA-BACE"
+                  width={960}
+                  height={504}
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Footer */}
         <section aria-labelledby="contact-heading" className="bg-white py-24 sm:py-28">
           <div className="mx-auto max-w-6xl px-6">
@@ -829,7 +863,7 @@ export default function Home() {
                   fouled probes.
                 </p>
                 <div className="mt-8 max-w-sm">
-                  <Image
+            <Image
                     src={asset("/assets/footer-badges.png")}
                     alt="DeGroff Aviation Technologies memberships and certifications"
                     width={360}
@@ -840,9 +874,7 @@ export default function Home() {
               <ContactDetails />
             </div>
             <div className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-brand/10 pt-6 text-xs text-brand-dark/60">
-              <p>
-                © {year} DeGroff Aviation Technologies. All rights reserved. Website designed by John Russell and DeGroff.
-              </p>
+              <p>© {year} DeGroff Aviation Technologies. All rights reserved. Website designed by Russell and DeGroff.</p>
               <div className="flex flex-wrap items-center gap-4">
                 <a className="hover:text-brand" href="#hero">
                   Back to top
@@ -852,18 +884,18 @@ export default function Home() {
                 </a>
                 <a className="hover:text-brand" href="https://mullign.github.io/Degroff/">
                   Live site
-                </a>
-                <a
+          </a>
+          <a
                   className="flex items-center gap-2 rounded-full border border-brand/10 px-3 py-1.5 text-brand-dark transition hover:border-brand hover:text-brand-dark"
                   href="https://www.facebook.com/profile.php?id=61583542143823"
-                  target="_blank"
+            target="_blank"
                   rel="noreferrer"
                   aria-label="DeGroff Aviation Technologies on Facebook"
-                >
+          >
                   <Image src={asset("/assets/facebook.svg")} alt="" width={16} height={16} />
                   <span className="text-xs font-semibold uppercase tracking-[0.2em]">Facebook</span>
-                </a>
-              </div>
+          </a>
+        </div>
             </div>
           </div>
         </section>

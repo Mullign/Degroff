@@ -40,8 +40,8 @@ module.exports = {
         },
       },
       animation: {
-        marquee: "marquee 16s linear infinite",
-            copesMarquee: "copesMarquee 22s linear infinite",
+            marquee: "marquee 16s linear infinite",
+            copesMarquee: "copesMarquee 32s linear infinite",
         gradient: "gradient 20s ease-in-out infinite",
         float: "float 6s ease-in-out infinite",
       },
