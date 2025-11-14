@@ -38,12 +38,22 @@ module.exports = {
           "0%, 100%": { transform: "translateY(0px)" },
           "50%": { transform: "translateY(-12px)" },
         },
+        fly: {
+          "0%": { transform: "translateX(-100px) translateY(0px)" },
+          "100%": { transform: "translateX(calc(100vw + 100px)) translateY(0px)" },
+        },
+        "fly-reverse": {
+          "0%": { transform: "translateX(calc(100vw + 300px)) translateY(0px)" },
+          "100%": { transform: "translateX(-400px) translateY(0px)" },
+        },
       },
       animation: {
             marquee: "marquee 16s linear infinite",
             copesMarquee: "copesMarquee 32s linear infinite",
         gradient: "gradient 20s ease-in-out infinite",
         float: "float 6s ease-in-out infinite",
+        fly: "fly 15s linear infinite",
+        "fly-reverse": "fly-reverse 15s linear infinite",
       },
     },
   },

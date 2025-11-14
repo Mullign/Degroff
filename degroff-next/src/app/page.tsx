@@ -244,6 +244,21 @@ export default function Home() {
       <main className="bg-brand-soft text-brand-dark">
         {/* Hero */}
         <section id="hero" className="relative overflow-hidden bg-white">
+          {/* Flying Airplane Animation */}
+          <div className="absolute top-0 left-0 w-full h-40 pointer-events-none overflow-visible z-10">
+            <div className="relative w-full h-full">
+              <div className="absolute top-2 animate-fly-reverse">
+                <Image
+                  src={asset("/assets/ChatGPT Image Nov 14, 2025, 06_18_43 PM.png")}
+                  alt=""
+                  width={300}
+                  height={120}
+                  className="opacity-90"
+                  priority
+                />
+              </div>
+            </div>
+          </div>
           <div className="pointer-events-none absolute -left-24 top-16 h-72 w-72 rounded-full bg-brand/20 blur-3xl animate-gradient" />
           <div className="pointer-events-none absolute right-[-120px] bottom-0 h-80 w-80 rounded-full bg-brand-dark/10 blur-3xl animate-gradient" />
           <div className="mx-auto grid max-w-6xl gap-12 px-6 py-24 lg:grid-cols-[minmax(0,1fr)_minmax(0,420px)] lg:items-center">
