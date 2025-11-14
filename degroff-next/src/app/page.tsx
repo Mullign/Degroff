@@ -81,13 +81,6 @@ const compatibility: CompatibilityItem[] = [
   { name: "And More" },
 ];
 
-const copesAlerts = [
-  "Prevent Covered Pitot Events (COPEs) with PSV2™ SmartCover™",
-  "Auto-release technology disengages in minutes after pitot heat activation",
-  "PSV2™ eliminates COPEs risks for commercial, business, and defense fleets",
-  "Request COPEs mitigation support from DeGroff Aviation Technologies today",
-];
-
 const timeline = [
   {
     phase: "Assess & Plan",
@@ -249,21 +242,6 @@ export default function Home() {
     <>
       <SiteHeader />
       <main className="bg-brand-soft text-brand-dark">
-        {/* COPEs alert banner */}
-        <section aria-label="COPEs alert banner" className="relative overflow-hidden bg-red-600 text-white py-3">
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-red-600 via-red-500/90 to-red-600 opacity-80" />
-          <div className="relative overflow-hidden">
-            <div className="flex animate-copesMarquee whitespace-nowrap text-sm font-semibold uppercase tracking-[0.32em] leading-7 md:text-base">
-              {copesAlerts.concat(copesAlerts, copesAlerts).map((message, index) => (
-                <span key={`${message}-${index}`} className="mx-12 flex items-center gap-4">
-                  <span>{message}</span>
-                  <span className="text-white/50">•</span>
-                </span>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* Hero */}
         <section id="hero" className="relative overflow-hidden bg-white">
           <div className="pointer-events-none absolute -left-24 top-16 h-72 w-72 rounded-full bg-brand/20 blur-3xl animate-gradient" />
