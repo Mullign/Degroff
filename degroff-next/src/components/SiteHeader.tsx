@@ -40,7 +40,7 @@ export function SiteHeader() {
     <header className={headerClasses}>
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-4 sm:px-8">
         <a href="#hero" className="flex items-center gap-3">
-          <Image src={asset("/assets/degroff-logo.png")} alt="DeGroff Aviation Technologies" width={220} height={88} priority />
+          <Image src={asset("/assets/degroff-logo.png.png")} alt="DeGroff Aviation Technologies" width={220} height={88} priority />
         </a>
         <nav
           className={`hidden items-center gap-8 text-sm font-medium text-brand-dark/70 lg:flex ${
