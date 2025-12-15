@@ -862,7 +862,7 @@ export default function Home() {
             <div className="grid gap-10 rounded-3xl border border-brand/10 bg-brand-soft dark:bg-slate-800 p-10 shadow-soft lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] lg:items-center">
               <div className="space-y-4">
                 <p className="inline-flex items-center justify-center rounded-full border border-brand/15 bg-brand/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.32em] text-brand">
-                  What Clients Are Saying
+                  Testimonials
                 </p>
                 <h2 className="mt-4 text-3xl font-semibold tracking-tight text-brand-dark sm:text-4xl">
                   Real feedback from the flight deck.
