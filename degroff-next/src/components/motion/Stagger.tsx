@@ -1,7 +1,7 @@
 'use client';
 
 import type { ReactNode } from "react";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 
 type StaggerProps = {
   children: ReactNode;
@@ -9,20 +9,22 @@ type StaggerProps = {
   delayChildren?: number;
 };
 
-const containerVariants = {
+const baseTransition = {
+  duration: 0.45,
+  ease: "easeOut" as const,
+  staggerChildren: 0.08,
+};
+
+const containerVariants: Variants = {
   hidden: { opacity: 0, y: 16 },
   show: {
     opacity: 1,
     y: 0,
-    transition: {
-      duration: 0.45,
-      ease: "easeOut",
-      staggerChildren: 0.08,
-    },
+    transition: baseTransition,
   },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 16 },
   show: { opacity: 1, y: 0 },
 };
@@ -36,7 +38,7 @@ export function Stagger({ children, className, delayChildren }: StaggerProps) {
         show: {
           ...containerVariants.show,
           transition: {
-            ...containerVariants.show.transition,
+            ...baseTransition,
             delayChildren,
           },
         },
@@ -57,6 +59,7 @@ export function Stagger({ children, className, delayChildren }: StaggerProps) {
     </motion.div>
   );
 }
+
 
 
 
