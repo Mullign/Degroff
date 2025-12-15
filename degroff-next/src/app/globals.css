@@ -8,11 +8,12 @@
 
 html {
   scroll-behavior: smooth;
+  background-color: transparent;
 }
 
 body {
-  @apply bg-brand-soft text-brand-dark min-h-screen antialiased;
   font-family: var(--font-geist-sans, "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
+  background-color: transparent;
 }
 
 a {
@@ -25,5 +26,30 @@ a {
 
 .shadow-lifted {
   box-shadow: 0 24px 44px rgba(15, 35, 70, 0.12);
+}
+
+.page-shell {
+  @apply bg-brand-soft text-brand-dark min-h-screen antialiased;
+  position: relative;
+  overflow-x: hidden;
+  z-index: 0;
+}
+
+.page-shell::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, rgba(15, 35, 70, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 35, 70, 0.08) 1px, transparent 1px);
+  background-size: 64px 64px;
+  opacity: 1;
+  z-index: -1;
+}
+
+.page-shell > * {
+  position: relative;
+  z-index: 1;
 }
 

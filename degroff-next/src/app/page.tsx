@@ -241,9 +241,9 @@ export default function Home() {
   return (
     <>
       <SiteHeader />
-      <main className="bg-brand-soft text-brand-dark">
+      <main className="text-brand-dark">
         {/* Compatibility marquee */}
-        <section aria-label="Fleet coverage marquee" className="bg-brand/5 py-4">
+        <section aria-label="Fleet coverage marquee" className="bg-white py-4">
           <div className="overflow-hidden">
             <div className="flex animate-marquee whitespace-nowrap text-xs font-semibold uppercase tracking-[0.32em] text-brand-dark/60">
               {compatibility.concat(compatibility).map((item, index) => {

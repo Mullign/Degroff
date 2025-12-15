@@ -32,8 +32,8 @@ export function SiteHeader() {
   }, [menuOpen]);
 
   const headerClasses = [
-    "sticky top-0 z-50 transition-all duration-300",
-    scrolled ? "bg-white/95 shadow-soft backdrop-blur" : "bg-white/90",
+    "sticky top-0 z-50 border-b transition-all duration-300",
+    scrolled ? "bg-slate-100 shadow-soft border-brand-dark/10" : "bg-slate-100 border-brand/10",
   ].join(" ");
 
   return (
