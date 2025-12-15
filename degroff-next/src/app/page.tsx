@@ -186,7 +186,7 @@ const SectionHeader = ({ badge, title, lead }: { badge: string; title: string; l
     <span className="inline-flex items-center justify-center rounded-full border border-brand/15 bg-brand/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.32em] text-brand">
       {badge}
     </span>
-    <h2 className="mt-6 text-3xl font-semibold tracking-tight text-brand-dark sm:text-4xl">{title}</h2>
+    <h2 className="mt-6 text-3xl font-semibold tracking-tight text-brand-dark sm:text-5xl">{title}</h2>
     <p className="mt-4 text-base leading-relaxed text-brand-dark/70">{lead}</p>
   </motion.div>
 );
@@ -494,7 +494,7 @@ export default function Home() {
                 <span className="inline-flex items-center justify-center rounded-full border border-brand/15 bg-brand/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.32em] text-brand">
                   Product Features
                 </span>
-                <h2 className="mt-6 text-3xl font-semibold tracking-tight text-brand-dark sm:text-4xl">
+                <h2 className="mt-6 text-3xl font-semibold tracking-tight text-brand-dark sm:text-5xl">
                   Purpose-built features for today&apos;s flight lines
                 </h2>
                 <div className="mt-8 grid gap-8 sm:grid-cols-2">
@@ -536,7 +536,7 @@ export default function Home() {
                 <span className="inline-flex items-center justify-center rounded-full border border-brand/15 bg-brand/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.32em] text-brand">
                   Fleet Compatibility
                 </span>
-                <h2 className="mt-6 text-3xl font-semibold tracking-tight text-brand-dark">
+                <h2 className="mt-6 text-3xl font-semibold tracking-tight text-brand-dark sm:text-5xl">
                   Certified coverage across leading aircraft
                 </h2>
                 <p className="mt-4 text-sm leading-relaxed text-brand-dark/70">

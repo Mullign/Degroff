@@ -29,7 +29,8 @@ a {
 }
 
 .page-shell {
-  @apply bg-brand-soft text-brand-dark min-h-screen antialiased;
+  @apply text-brand-dark min-h-screen antialiased;
+  background-color: #e4edf6;
   position: relative;
   overflow-x: hidden;
   z-index: 0;
@@ -41,8 +42,8 @@ a {
   inset: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(to right, rgba(15, 35, 70, 0.08) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(15, 35, 70, 0.08) 1px, transparent 1px);
+    linear-gradient(to right, rgba(15, 35, 70, 0.12) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 35, 70, 0.12) 1px, transparent 1px);
   background-size: 64px 64px;
   opacity: 1;
   z-index: -1;
