@@ -99,14 +99,14 @@ export function NewsletterForm() {
 
   if (!isVisible) {
     return (
-      <div className="flex flex-wrap items-center justify-between gap-4 rounded-3xl border border-brand/10 bg-white p-8 shadow-soft">
+      <div className="flex flex-wrap items-center justify-between gap-4 rounded-3xl border border-brand/10 bg-white dark:bg-slate-800 dark:border-slate-700 p-8 shadow-soft">
         <div className="space-y-2">
           <span className="inline-flex items-center justify-center rounded-full border border-brand/15 bg-brand/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.32em] text-brand">
             Updates Paused
           </span>
-          <h3 className="text-xl font-semibold text-brand-dark">Newsletter updates are turned off.</h3>
-          <p className="max-w-xl text-sm leading-relaxed text-brand-dark/70">
-            You selected “Never show again.” Re-enable the newsletter to keep receiving PitotShield V2™ SmartCover™ (PSV2)
+          <h3 className="text-xl font-semibold text-brand-dark dark:text-slate-100">Newsletter updates are turned off.</h3>
+          <p className="max-w-xl text-sm leading-relaxed text-brand-dark/70 dark:text-slate-300">
+            You selected "Never show again." Re-enable the newsletter to keep receiving PitotShield V2™ SmartCover™ (PSV2)
             updates.
           </p>
         </div>
@@ -116,7 +116,7 @@ export function NewsletterForm() {
             setNeverShowAgain(false);
             setIsVisible(true);
           }}
-          className="inline-flex items-center justify-center rounded-full border border-brand/20 px-5 py-3 text-sm font-semibold text-brand transition hover:border-brand hover:text-brand-dark"
+          className="inline-flex items-center justify-center rounded-full border border-brand/20 dark:border-slate-600 px-5 py-3 text-sm font-semibold text-brand dark:text-slate-200 transition hover:border-brand hover:text-brand-dark dark:hover:text-slate-100"
         >
           Re-enable newsletter
         </button>
@@ -127,22 +127,22 @@ export function NewsletterForm() {
   return (
     <div
       id="newsletter"
-      className="grid gap-8 rounded-3xl border border-brand/10 bg-white p-10 shadow-soft lg:grid-cols-[minmax(0,1fr)_320px]"
+      className="grid gap-8 rounded-3xl border border-brand/10 bg-white dark:bg-slate-800 dark:border-slate-700 p-10 shadow-soft lg:grid-cols-[minmax(0,1fr)_320px]"
     >
       <form className="flex flex-col gap-8" onSubmit={handleSubmit} autoComplete="on">
         <div className="space-y-4">
           <span className="inline-flex items-center justify-center rounded-full border border-brand/15 bg-brand/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.32em] text-brand">
             Stay Updated
           </span>
-          <h3 className="text-2xl font-semibold text-brand-dark sm:text-3xl">Newsletter & Product Updates</h3>
-          <p className="max-w-xl text-sm leading-relaxed text-brand-dark/70">
+          <h3 className="text-2xl font-semibold text-brand-dark dark:text-slate-100 sm:text-3xl">Newsletter & Product Updates</h3>
+          <p className="max-w-xl text-sm leading-relaxed text-brand-dark/70 dark:text-slate-300">
             Join maintenance leaders receiving insights on PitotShield V2™ SmartCover™ (PSV2) releases, deployment guides, and
             mission-ready checklists.
           </p>
         </div>
 
         <div className="grid gap-4 sm:grid-cols-2">
-          <label className="flex flex-col gap-2 text-sm font-semibold text-brand-dark/80">
+          <label className="flex flex-col gap-2 text-sm font-semibold text-brand-dark/80 dark:text-slate-200">
             Full Name
             <input
               id="newsletterName"
@@ -151,10 +151,10 @@ export function NewsletterForm() {
               placeholder="Captain Jordan Lee"
               autoComplete="name"
               required
-              className="h-12 rounded-xl border border-brand/15 bg-brand-soft px-4 text-sm font-normal text-brand-dark outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20"
+              className="h-12 rounded-xl border border-brand/15 bg-brand-soft dark:bg-slate-700 dark:border-slate-600 px-4 text-sm font-normal text-brand-dark dark:text-slate-100 placeholder:text-brand-dark/50 dark:placeholder:text-slate-400 outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20"
             />
           </label>
-          <label className="flex flex-col gap-2 text-sm font-semibold text-brand-dark/80">
+          <label className="flex flex-col gap-2 text-sm font-semibold text-brand-dark/80 dark:text-slate-200">
             Work Email
             <input
               id="newsletterEmail"
@@ -163,7 +163,7 @@ export function NewsletterForm() {
               placeholder="ops@flightdepartment.com"
               autoComplete="email"
               required
-              className="h-12 rounded-xl border border-brand/15 bg-brand-soft px-4 text-sm font-normal text-brand-dark outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20"
+              className="h-12 rounded-xl border border-brand/15 bg-brand-soft dark:bg-slate-700 dark:border-slate-600 px-4 text-sm font-normal text-brand-dark dark:text-slate-100 placeholder:text-brand-dark/50 dark:placeholder:text-slate-400 outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20"
             />
           </label>
         </div>
@@ -176,20 +176,20 @@ export function NewsletterForm() {
           >
             {status === "loading" ? "Subscribing..." : "Subscribe for PSV2 Updates"}
           </button>
-          <label className="flex items-center gap-2 text-xs text-brand-dark/70">
+          <label className="flex items-center gap-2 text-xs text-brand-dark/70 dark:text-slate-300">
             <input
               type="checkbox"
               checked={neverShowAgain}
               onChange={(event) => setNeverShowAgain(event.target.checked)}
-              className="h-4 w-4 rounded border-brand/30 text-brand focus:ring-brand"
+              className="h-4 w-4 rounded border-brand/30 dark:border-slate-600 text-brand focus:ring-brand"
             />
             Never show this message again
           </label>
         </div>
 
-        <p className="text-xs text-brand-dark/60">
+        <p className="text-xs text-brand-dark/60 dark:text-slate-400">
           Prefer direct contact? Email{" "}
-          <a href="mailto:info@degroffaviation.com" className="font-semibold text-brand hover:text-brand-dark">
+          <a href="mailto:info@degroffaviation.com" className="font-semibold text-brand dark:text-cyan-400 hover:text-brand-dark dark:hover:text-cyan-300">
             info@degroffaviation.com
           </a>{" "}
           for PSV2™ inquiries.
@@ -209,10 +209,10 @@ export function NewsletterForm() {
         </div>
       </form>
 
-      <aside className="rounded-2xl border border-brand/10 bg-brand-soft/60 p-6 shadow-soft">
+      <aside className="rounded-2xl border border-brand/10 bg-brand-soft/60 dark:bg-slate-700/60 dark:border-slate-600 p-6 shadow-soft">
         <div>
-          <h4 className="text-sm font-semibold text-brand-dark">What you&apos;ll receive</h4>
-          <ul className="mt-3 space-y-2 text-sm text-brand-dark/70">
+          <h4 className="text-sm font-semibold text-brand-dark dark:text-slate-100">What you&apos;ll receive</h4>
+          <ul className="mt-3 space-y-2 text-sm text-brand-dark/70 dark:text-slate-300">
             <li>COPEs prevention playbooks tailored for flight ops</li>
             <li>Deployment guides for PitotShield V2™ SmartCover™ (PSV2)</li>
             <li>Certified training and maintenance notifications</li>
@@ -220,8 +220,8 @@ export function NewsletterForm() {
           </ul>
         </div>
         <div className="mt-6">
-          <h4 className="text-sm font-semibold text-brand-dark">Frequency</h4>
-          <p className="mt-2 text-sm text-brand-dark/70">1–2 curated messages per month. Unsubscribe at any time.</p>
+          <h4 className="text-sm font-semibold text-brand-dark dark:text-slate-100">Frequency</h4>
+          <p className="mt-2 text-sm text-brand-dark/70 dark:text-slate-300">1–2 curated messages per month. Unsubscribe at any time.</p>
         </div>
       </aside>
     </div>

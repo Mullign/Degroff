@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { SiteBackground } from "@/components/SiteBackground";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://pitotshields.com";
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
@@ -70,7 +72,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} page-shell`}>
-        {children}
+        <ThemeProvider>
+          <SiteBackground>{children}</SiteBackground>
+        </ThemeProvider>
       </body>
     </html>
   );
