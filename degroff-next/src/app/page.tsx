@@ -360,7 +360,7 @@ export default function Home() {
                 About DeGroff Aviation Technologies™
               </h2>
               <p className="mt-6 text-base leading-relaxed text-brand-dark/70">
-                Since 1985, DeGroff Aviation Technologies has brought together product development and pilot experience to create
+                Since 1985, DeGroff Aviation Technologies™ has brought together product development and pilot experience to create
                 high-quality aircraft safety solutions for corporate, commercial, and general aviation.
               </p>
               <div className="mt-8 grid gap-6">
@@ -771,6 +771,38 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Testimonial */}
+        <section className="py-24 sm:py-28">
+          <div className="mx-auto max-w-6xl px-6">
+            <div className="grid gap-10 rounded-3xl border border-brand/10 bg-white p-10 shadow-soft lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] lg:items-center">
+              <div className="space-y-4">
+                <p className="inline-flex items-center justify-center rounded-full border border-brand/15 bg-brand/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.32em] text-brand">
+                  What Clients Are Saying
+                </p>
+                <h2 className="mt-4 text-3xl font-semibold tracking-tight text-brand-dark sm:text-4xl">
+                  Real feedback from the flight deck.
+                </h2>
+                <p className="mt-4 text-sm leading-relaxed text-brand-dark/70">
+                  Real feedback from people who have worked with us. These testimonials reflect our commitment to quality, reliability,
+                  and results. Every project is built on trust, communication, and delivering real value.
+                </p>
+                <p className="mt-4 text-sm font-medium text-brand-dark/80">
+                  “This should be the standard.” — Corporate Pilot, Cook Medical
+                </p>
+              </div>
+              <div className="mx-auto w-full max-w-xs overflow-hidden rounded-3xl border border-brand/10 bg-brand-soft/60">
+                <Image
+                  src={asset("/assets/Testinmonial.jpeg")}
+                  alt='Testimonial about PitotShield V2™ SmartCovers™ from a corporate pilot'
+                  width={400}
+                  height={600}
+                  className="h-auto w-full object-contain"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Newsletter */}
         <section className="py-24 sm:py-28">
           <div className="mx-auto max-w-5xl px-6">
@@ -832,7 +864,7 @@ export default function Home() {
                   Committed to aviation safety leadership
                 </h2>
                 <p className="mt-4 text-sm leading-relaxed text-brand-dark/70">
-                  DeGroff Aviation Technologies pairs pilot experience with engineering excellence to deliver the only heat-activated
+                  DeGroff Aviation Technologies™ pairs pilot experience with engineering excellence to deliver the only heat-activated
                   self-disengaging pitot cover on the market. PSV2™ protects commercial, executive, and defense aircraft from COPEs and
                   fouled probes.
                 </p>
