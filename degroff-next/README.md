@@ -1,4 +1,4 @@
-# DeGroff Aviation Technologies – PitotShield V2™ SmartCover™ Site
+# DeGroff Aviation Technologies™ – PitotShield V2™ SmartCover™ Site
 
 Modern one-page marketing site for the PitotShield V2™ SmartCover™ (PSV2), built with Next.js 16, Tailwind CSS, and Framer Motion.
 
@@ -72,4 +72,4 @@ public/
 
 ## License
 
-© DeGroff Aviation Technologies. Content may not be reused without permission.
+© DeGroff Aviation Technologies™. Content may not be reused without permission.

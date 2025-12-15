@@ -30,7 +30,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase,
-  title: "PitotShield V2™ SmartCover™ (PSV2) | DeGroff Aviation Technologies",
+  title: "PitotShield V2™ SmartCover™ (PSV2) | DeGroff Aviation Technologies™",
   description:
     "Discover the PitotShield V2™ SmartCover™ (PSV2) — the auto-releasing pitot tube cover engineered to stop Covered Pitot Events (COPEs) and protect mission-critical operations.",
   icons: {
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     description:
       "Heat-activated, auto-releasing pitot tube cover engineered to eliminate COPEs and protect aircraft operations.",
     url: SITE_URL,
-    siteName: "DeGroff Aviation Technologies",
+    siteName: "DeGroff Aviation Technologies™",
     images: [
       {
         url: absoluteUrl("/assets/hero-main.jpg"),

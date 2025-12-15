@@ -193,9 +193,9 @@ const SectionHeader = ({ badge, title, lead }: { badge: string; title: string; l
 
 const ContactDetails = () => (
   <div id="contact" className="rounded-3xl border border-brand/10 bg-white p-10 shadow-soft">
-    <h3 className="text-2xl font-semibold text-brand-dark">DeGroff Aviation Technologies</h3>
+    <h3 className="text-2xl font-semibold text-brand-dark">DeGroff Aviation Technologies™</h3>
     <p className="mt-4 text-brand-dark/70">
-      DeGroff Aviation Technologies, LLC
+      DeGroff Aviation Technologies™, LLC
       <br />
       150 Forest Park Dr.
       <br />
@@ -309,7 +309,7 @@ export default function Home() {
                 </a>
                 <a
                   className="inline-flex items-center justify-center rounded-full border border-brand/20 px-6 py-3 text-sm font-semibold text-brand transition hover:border-brand hover:text-brand-dark"
-                  href="#gallery"
+                  href="#psv2-demo"
                 >
                   View PSV2™ in Action
                 </a>
@@ -357,7 +357,7 @@ export default function Home() {
               className="rounded-3xl border border-brand/10 bg-white p-10 shadow-soft lg:col-span-3"
             >
               <h2 className="text-3xl font-semibold tracking-tight text-brand-dark sm:text-4xl">
-                About DeGroff Aviation Technologies
+                About DeGroff Aviation Technologies™
               </h2>
               <p className="mt-6 text-base leading-relaxed text-brand-dark/70">
                 Since 1985, DeGroff Aviation Technologies has brought together product development and pilot experience to create
@@ -373,7 +373,7 @@ export default function Home() {
               </div>
             </motion.div>
             <div className="flex flex-col gap-6 rounded-3xl border border-brand/10 bg-white p-6 shadow-soft lg:col-span-2">
-              <div className="relative w-full overflow-hidden rounded-2xl border border-brand/10">
+              <div id="psv2-demo" className="relative w-full overflow-hidden rounded-2xl border border-brand/10">
                 <video className="w-full" controls preload="metadata" poster={asset("/assets/Accessories.png")}>
                   <source src={asset("/assets/psv2-demo.mp4")} type="video/mp4" />
                   Your browser does not support the video tag.
@@ -595,7 +595,7 @@ export default function Home() {
           <div className="mx-auto max-w-6xl px-6">
             <SectionHeader
               badge="Photos & Product Updates"
-              title="Visual updates from DeGroff Aviation Technologies"
+              title="Visual updates from DeGroff Aviation Technologies™"
               lead="Explore PSV2™ deployments, RBF streamer options, and product detail close-ups requested by operator partners."
             />
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -707,7 +707,7 @@ export default function Home() {
                     business, and defense aviation programs worldwide.
                   </p>
                   <p>
-                    Prefer to work directly with the manufacturer? Contact the DeGroff Aviation Technologies sales team at{" "}
+                    Prefer to work directly with the manufacturer? Contact the DeGroff Aviation Technologies™ sales team at{" "}
                     <a href="mailto:info@degroffaviation.com" className="font-semibold text-brand hover:text-brand-dark">
                       info@degroffaviation.com
             </a>{" "}
@@ -839,7 +839,7 @@ export default function Home() {
                 <div className="mt-8 max-w-sm">
             <Image
                     src={asset("/assets/footer-badges.png")}
-                    alt="DeGroff Aviation Technologies memberships and certifications"
+                    alt="DeGroff Aviation Technologies™ memberships and certifications"
                     width={360}
                     height={120}
                   />
@@ -848,7 +848,7 @@ export default function Home() {
               <ContactDetails />
             </div>
             <div className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-brand/10 pt-6 text-xs text-brand-dark/60">
-              <p>© {year} DeGroff Aviation Technologies. All rights reserved. Website designed by Russell and DeGroff.</p>
+              <p>© {year} DeGroff Aviation Technologies™. All rights reserved. Website designed by Russell and DeGroff.</p>
               <div className="flex flex-wrap items-center gap-4">
                 <a
                   className="inline-flex items-center justify-center rounded-full border border-brand/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-brand transition hover:border-brand hover:text-brand-dark"
