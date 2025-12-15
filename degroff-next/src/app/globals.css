@@ -30,7 +30,7 @@ a {
 
 .page-shell {
   @apply text-brand-dark min-h-screen antialiased;
-  background-color: #e4edf6;
+  background-color: #cdd9eb;
   position: relative;
   overflow-x: hidden;
   z-index: 0;

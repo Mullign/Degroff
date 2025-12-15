@@ -106,7 +106,6 @@ const galleryImages = [
   { src: asset("/assets/4.jpg"), alt: "PitotShield V2™ SmartCover™ product image 4" },
   { src: asset("/assets/5.jpg"), alt: "PitotShield V2™ SmartCover™ product image 5" },
   { src: asset("/assets/6.jpg"), alt: "PitotShield V2™ SmartCover™ product image 6" },
-  { src: asset("/assets/7.jpeg"), alt: "PitotShield V2™ SmartCover™ product image 7" },
 ];
 
 const productShowcase = [
@@ -192,7 +191,7 @@ const SectionHeader = ({ badge, title, lead }: { badge: string; title: string; l
 );
 
 const ContactDetails = () => (
-  <div id="contact" className="rounded-3xl border border-brand/10 bg-white p-10 shadow-soft">
+  <div id="contact" className="rounded-3xl border border-brand/10 bg-brand-soft p-10 shadow-soft">
     <h3 className="text-2xl font-semibold text-brand-dark">DeGroff Aviation Technologies™</h3>
     <p className="mt-4 text-brand-dark/70">
       DeGroff Aviation Technologies™, LLC
@@ -347,14 +346,14 @@ export default function Home() {
         </section>
 
         {/* About */}
-        <section id="about" className="py-24 sm:py-28">
-          <div className="mx-auto grid max-w-6xl gap-10 px-6 lg:grid-cols-5 lg:gap-12">
+        <section id="about" className="py-20 sm:py-24">
+          <div className="mx-auto grid max-w-6xl gap-10 px-6 lg:grid-cols-5 lg:gap-12 lg:items-start">
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.35 }}
               transition={{ duration: 0.5, ease: "easeOut" }}
-              className="rounded-3xl border border-brand/10 bg-white p-10 shadow-soft lg:col-span-3"
+              className="rounded-3xl border border-brand/10 bg-brand-soft p-10 shadow-soft lg:col-span-3"
             >
               <h2 className="text-3xl font-semibold tracking-tight text-brand-dark sm:text-4xl">
                 About DeGroff Aviation Technologies™
@@ -372,10 +371,18 @@ export default function Home() {
                 ))}
               </div>
             </motion.div>
-            <div className="flex flex-col gap-6 rounded-3xl border border-brand/10 bg-white p-6 shadow-soft lg:col-span-2">
-              <div id="psv2-demo" className="relative w-full overflow-hidden rounded-2xl border border-brand/10">
-                <video className="w-full" controls preload="metadata" poster={asset("/assets/Accessories.png")}>
-                  <source src={asset("/assets/psv2-demo.mp4")} type="video/mp4" />
+            <div className="flex flex-col gap-4 rounded-3xl border border-brand/10 bg-brand-soft p-4 shadow-soft lg:col-span-2">
+              <div
+                id="psv2-demo"
+                className="relative w-full overflow-hidden rounded-xl border border-brand/10 aspect-video"
+              >
+                <video
+                  className="h-full w-full object-cover"
+                  controls
+                  preload="metadata"
+                  poster={asset("/assets/Accessories.png")}
+                >
+                  <source src={asset('/assets/pitotshield_v2_realfootage_teaser_captioned_360 (1).mp4')} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
               </div>
@@ -388,7 +395,7 @@ export default function Home() {
         </section>
 
         {/* Technology */}
-        <section id="technology" className="py-24 sm:py-28">
+        <section id="technology" className="py-20 sm:py-24">
           <div className="mx-auto max-w-6xl px-6">
             <SectionHeader
               badge="Technology"
@@ -403,7 +410,7 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.2 }}
                   transition={{ duration: 0.45, ease: "easeOut" }}
-                  className="rounded-2xl border border-brand/10 bg-white p-6 shadow-soft"
+                  className="rounded-2xl border border-brand/10 bg-brand-soft p-6 shadow-soft"
                 >
                   <h3 className="text-lg font-semibold text-brand-dark">{feature.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-brand-dark/70">{feature.copy}</p>
@@ -414,7 +421,7 @@ export default function Home() {
         </section>
 
         {/* Operations */}
-        <section id="benefits" className="py-24 sm:py-28">
+        <section id="benefits" className="py-20 sm:py-24">
           <div className="mx-auto max-w-6xl px-6">
             <SectionHeader
               badge="Operations Advantage"
@@ -427,7 +434,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.35 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
-                className="rounded-3xl border border-brand/10 bg-white p-8 shadow-soft lg:col-span-3"
+                className="rounded-3xl border border-brand/10 bg-brand-soft p-8 shadow-soft lg:col-span-3"
               >
                 <div>
                   <h3 className="text-xl font-semibold text-brand-dark">Why teams choose PSV2™</h3>
@@ -466,7 +473,7 @@ export default function Home() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, amount: 0.3 }}
                     transition={{ duration: 0.45, ease: "easeOut", delay: index * 0.05 }}
-                    className="relative rounded-2xl border border-brand/10 bg-white p-6 shadow-soft"
+                    className="relative rounded-2xl border border-brand/10 bg-brand-soft p-6 shadow-soft"
                   >
                     <span className="absolute top-6 left-6 h-3 w-3 rounded-full bg-brand shadow-[0_0_0_6px_rgba(42,127,255,0.12)]" />
                     <div className="pl-8">
@@ -481,15 +488,15 @@ export default function Home() {
         </section>
 
         {/* Features & Compatibility */}
-        <section id="compatibility" className="py-24 sm:py-28">
+        <section id="compatibility" className="py-20 sm:py-24">
           <div className="mx-auto max-w-6xl px-6">
             <div className="grid gap-10 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
               <motion.div
                 initial={{ opacity: 0, y: 32 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.35 }}
-                transition={{ duration: 0.45, ease: "easeOut" }}
-                className="rounded-3xl border border-brand/10 bg-white p-10 shadow-soft"
+              transition={{ duration: 0.45, ease: "easeOut" }}
+              className="rounded-3xl border border-brand/10 bg-brand-soft p-10 shadow-soft"
               >
                 <span className="inline-flex items-center justify-center rounded-full border border-brand/15 bg-brand/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.32em] text-brand">
                   Product Features
@@ -531,7 +538,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.35 }}
                 transition={{ duration: 0.45, ease: "easeOut", delay: 0.1 }}
-                className="rounded-3xl border border-brand/10 bg-white p-10 shadow-soft"
+                className="rounded-3xl border border-brand/10 bg-brand-soft p-10 shadow-soft"
               >
                 <span className="inline-flex items-center justify-center rounded-full border border-brand/15 bg-brand/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.32em] text-brand">
                   Fleet Compatibility
@@ -563,7 +570,7 @@ export default function Home() {
         </section>
 
         {/* Product Showcase */}
-        <section id="product" className="py-24 sm:py-28">
+        <section id="product" className="py-20 sm:py-24">
           <div className="mx-auto max-w-6xl px-6">
             <SectionHeader
               badge="Product Showcase"
@@ -578,7 +585,7 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.35 }}
                   transition={{ duration: 0.45, ease: "easeOut", delay: index * 0.05 }}
-                  className="overflow-hidden rounded-2xl border border-brand/10 bg-white shadow-soft"
+                  className="overflow-hidden rounded-2xl border border-brand/10 bg-brand-soft shadow-soft"
                 >
                   <div className="relative aspect-[4/3] w-full">
                     <Image src={item.src} alt={item.alt} fill className="object-cover transition duration-300 hover:scale-105" />
@@ -591,7 +598,7 @@ export default function Home() {
         </section>
 
         {/* Gallery */}
-        <section id="gallery" className="py-24 sm:py-28">
+        <section id="gallery" className="py-20 sm:py-24">
           <div className="mx-auto max-w-6xl px-6">
             <SectionHeader
               badge="Photos & Product Updates"
@@ -606,7 +613,7 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.3 }}
                   transition={{ duration: 0.4, ease: "easeOut", delay: index * 0.04 }}
-                  className="group relative overflow-hidden rounded-2xl border border-brand/10 bg-white shadow-soft"
+                  className="group relative overflow-hidden rounded-2xl border border-brand/10 bg-brand-soft shadow-soft"
                 >
                   <div className="relative aspect-[4/3] w-full">
                     <Image
@@ -624,7 +631,7 @@ export default function Home() {
         </section>
 
         {/* Technical Specs */}
-        <section id="specs" className="py-24 sm:py-28">
+        <section id="specs" className="py-20 sm:py-24">
           <div className="mx-auto max-w-6xl px-6">
             <SectionHeader
               badge="Technical Specifications"
@@ -639,14 +646,14 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.3 }}
                   transition={{ duration: 0.35, ease: "easeOut", delay: index * 0.05 }}
-                  className="rounded-2xl border border-brand/10 bg-white p-6 shadow-soft"
+                  className="rounded-2xl border border-brand/10 bg-brand-soft p-6 shadow-soft"
                 >
                   <span className="text-sm font-semibold uppercase tracking-wide text-brand">{spec.label}</span>
                   <p className="mt-3 text-sm leading-relaxed text-brand-dark/70">{spec.value}</p>
                 </motion.div>
               ))}
             </div>
-            <div className="mt-14 overflow-hidden rounded-3xl border border-brand/10 bg-white shadow-soft">
+            <div className="mt-14 overflow-hidden rounded-3xl border border-brand/10 bg-brand-soft shadow-soft">
               <div className="border-b border-brand/10 bg-brand/5 px-6 py-4">
                 <h3 className="text-sm font-semibold uppercase tracking-[0.28em] text-brand">Technical Documents</h3>
               </div>
@@ -685,15 +692,15 @@ export default function Home() {
         </section>
 
         {/* Proponent Sales */}
-        <section id="proponent" className="py-24 sm:py-28">
+        <section id="proponent" className="py-20 sm:py-24">
           <div className="mx-auto max-w-6xl px-6">
             <div className="grid gap-10 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)] lg:items-center">
               <motion.div
                 initial={{ opacity: 0, y: 28 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.35 }}
-                transition={{ duration: 0.45, ease: "easeOut" }}
-                className="rounded-3xl border border-brand/10 bg-white p-10 shadow-soft"
+              transition={{ duration: 0.45, ease: "easeOut" }}
+              className="rounded-3xl border border-brand/10 bg-brand-soft p-10 shadow-soft"
               >
                 <span className="inline-flex items-center justify-center rounded-full border border-brand/15 bg-brand/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.32em] text-brand">
                   Proponent Sales
@@ -750,7 +757,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, amount: 0.4 }}
                 transition={{ duration: 0.45, ease: "easeOut", delay: 0.1 }}
-                className="relative mx-auto flex w-full max-w-sm flex-col items-center gap-6 rounded-3xl border border-brand/10 bg-white p-8 text-center shadow-soft"
+                className="relative mx-auto flex w-full max-w-sm flex-col items-center gap-6 rounded-3xl border border-brand/10 bg-brand-soft p-8 text-center shadow-soft"
               >
                 <div className="flex items-center justify-center rounded-2xl border border-brand/10 bg-brand/5 p-6">
                   <Image src={asset("/assets/logo-proponent.svg")} alt="Proponent logo" width={200} height={120} />
@@ -772,9 +779,9 @@ export default function Home() {
         </section>
 
         {/* Testimonial */}
-        <section className="py-24 sm:py-28">
+        <section className="py-20 sm:py-24">
           <div className="mx-auto max-w-6xl px-6">
-            <div className="grid gap-10 rounded-3xl border border-brand/10 bg-white p-10 shadow-soft lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] lg:items-center">
+            <div className="grid gap-10 rounded-3xl border border-brand/10 bg-brand-soft p-10 shadow-soft lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] lg:items-center">
               <div className="space-y-4">
                 <p className="inline-flex items-center justify-center rounded-full border border-brand/15 bg-brand/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.32em] text-brand">
                   What Clients Are Saying
@@ -804,7 +811,7 @@ export default function Home() {
         </section>
 
         {/* Newsletter */}
-        <section className="py-24 sm:py-28">
+        <section className="py-20 sm:py-24">
           <div className="mx-auto max-w-5xl px-6">
             <NewsletterForm />
           </div>
@@ -813,7 +820,7 @@ export default function Home() {
         {/* Community & News */}
         <section className="bg-brand-soft py-16 text-brand-dark">
           <div className="mx-auto max-w-6xl px-6">
-            <div className="grid gap-8 rounded-3xl border border-brand/10 bg-white p-10 shadow-soft lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] lg:items-center">
+            <div className="grid gap-8 rounded-3xl border border-brand/10 bg-brand-soft p-10 shadow-soft lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] lg:items-center">
               <div>
                 <span className="inline-flex items-center justify-center rounded-full border border-brand/15 bg-brand/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.32em] text-brand">
                   Community & News
@@ -853,10 +860,10 @@ export default function Home() {
         </section>
 
         {/* Footer */}
-        <section aria-labelledby="contact-heading" className="bg-white py-24 sm:py-28">
+        <section aria-labelledby="contact-heading" className="bg-white py-20 sm:py-24">
           <div className="mx-auto max-w-6xl px-6">
             <div className="grid gap-8 lg:grid-cols-2">
-              <div className="rounded-3xl border border-brand/10 bg-white p-10 shadow-soft">
+              <div className="rounded-3xl border border-brand/10 bg-brand-soft p-10 shadow-soft">
                 <span className="inline-flex items-center justify-center rounded-full border border-brand/15 bg-brand/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.32em] text-brand">
                   Since 1985
                 </span>
