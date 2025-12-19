@@ -868,8 +868,8 @@ export default function Home() {
                   Real feedback from the flight deck.
                 </h2>
                 <p className="mt-4 text-sm leading-relaxed text-brand-dark/75 sm:text-base">
-                  Real feedback from people who have worked with us. These testimonials reflect our commitment to quality, reliability,
-                  and results. Every project is built on trust, communication, and delivering real value.
+                  Real feedback from pilots and aviation professionals who use our products. These testimonials reflect our commitment to quality, reliability,
+                  and results. Every product is built on trust, innovation, and delivering real value.
                 </p>
                 <p className="mt-4 text-sm font-medium text-brand-dark sm:text-base">
                   "This should be the standard." — Corporate Pilot, Cook Medical
