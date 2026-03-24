@@ -317,7 +317,7 @@ export default function Home() {
                 transition={{ duration: 0.5, ease: "easeOut" }}
                 className="inline-flex items-center justify-center rounded-full border border-brand/15 bg-brand/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.32em] text-brand"
               >
-                Stop Covered Pitot Events (COPEs)
+                Stop Burning Pitot Covers and Probes
               </motion.span>
               <motion.h1
                 initial={{ opacity: 0, y: 28 }}
@@ -503,7 +503,7 @@ export default function Home() {
           <div className="mx-auto max-w-7xl px-6">
             <SectionHeader
               badge="Operations Advantage"
-              title="Stop Covered Pitot Events (COPEs) before they disrupt missions."
+              title="Stop Burning Pitot Covers and Probes before they disrupt missions."
               lead="PSV2™ delivers mission-ready assurance for commercial airlines, defense programs, and executive fleets. Prevent costly maintenance delays, safeguard critical instrumentation, and keep crews on schedule."
             />
             <div className="grid gap-10 lg:grid-cols-5">

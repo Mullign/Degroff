@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   metadataBase,
   title: "PitotShield V2™ SmartCover™ (PSV2) | DeGroff Aviation Technologies™",
   description:
-    "Discover the PitotShield V2™ SmartCover™ (PSV2) — the auto-releasing pitot tube cover engineered to stop Covered Pitot Events (COPEs) and protect mission-critical operations.",
+    "Discover the PitotShield V2™ SmartCover™ (PSV2) — the auto-releasing pitot tube cover engineered to stop burning pitot covers and probes and protect mission-critical operations.",
   icons: {
     icon: withBasePath("/favicon.ico"),
   },
