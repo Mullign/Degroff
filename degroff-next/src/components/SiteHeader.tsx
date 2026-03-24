@@ -42,9 +42,19 @@ export function SiteHeader() {
   return (
     <header className={headerClasses}>
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-4 sm:px-8">
-        <a href="#hero" className="flex items-center gap-3">
-          <Image src={asset("/assets/degroff-logo.png.png")} alt="DeGroff Aviation Technologies™" width={220} height={88} priority />
-        </a>
+        <div className="flex min-w-0 items-center gap-2 sm:gap-4">
+          <a href="#hero" className="flex min-w-0 shrink items-center gap-3">
+            <Image src={asset("/assets/degroff-logo.png.png")} alt="DeGroff Aviation Technologies™" width={220} height={88} priority />
+          </a>
+          <a
+            href="https://www.degroffaviation.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex shrink-0 items-center justify-center rounded-full border border-brand/30 bg-brand/5 px-3 py-2 text-xs font-semibold text-brand shadow-sm transition hover:border-brand hover:bg-brand/10 hover:text-brand-dark focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2 dark:border-slate-500 dark:bg-slate-700/50 dark:text-slate-100 dark:hover:bg-slate-700 sm:px-4 sm:text-sm"
+          >
+            DeGroff Aviation
+          </a>
+        </div>
         <nav
           className={`hidden items-center gap-6 text-sm font-medium text-brand-dark/70 dark:text-slate-100/70 lg:flex flex-nowrap ${
             scrolled ? "text-brand-dark dark:text-slate-100" : ""
@@ -108,6 +118,15 @@ export function SiteHeader() {
             </span>
             {theme === "dark" ? "Light mode" : "Dark mode"}
           </button>
+          <a
+            href="https://www.degroffaviation.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setMenuOpen(false)}
+            className="mb-2 inline-flex items-center justify-center rounded-full border border-brand/30 bg-brand/5 px-4 py-3 text-center text-sm font-semibold text-brand shadow-sm transition hover:border-brand hover:bg-brand/10 dark:border-slate-500 dark:bg-slate-700/50 dark:text-slate-100"
+          >
+            DeGroff Aviation
+          </a>
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
