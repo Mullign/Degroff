@@ -7,6 +7,12 @@ This repository ships a Next.js app (`degroff-next/`) that exports to static HTM
 **Live site:** [pitotshields.com](https://pitotshields.com/)  
 **Repository:** [github.com/Mullign/Degroff](https://github.com/Mullign/Degroff)
 
+### Preview
+
+[![PitotShield V2 marketing site — hero, fleet marquee, and product sections](docs/readme-site-preview.png)](https://pitotshields.com/)
+
+*Click the image to open the live site.*
+
 ---
 
 ## Overview
@@ -125,15 +131,9 @@ The newsletter component falls back to placeholder service/template IDs in code 
 
 ---
 
-## Screenshots
+## More screenshots
 
-| | |
-|:--|:--|
-| Hero & stats | _Add `docs/screenshots/hero.png`_ |
-| Training video grid | _Add `docs/screenshots/videos.png`_ |
-| Specs & PDF downloads | _Add `docs/screenshots/specs.png`_ |
-
-Replace placeholders when you have captures; short screen recordings also work well for aviation stakeholders.
+The preview above is a full-page capture of [pitotshields.com](https://pitotshields.com/). Optional extras: `docs/screenshots/hero.png`, `docs/screenshots/videos.png`, `docs/screenshots/specs.png` for cropped sections or marketing decks.
 
 ---
 
