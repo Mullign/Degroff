@@ -273,38 +273,6 @@ export default function Home() {
     <>
       <SiteHeader />
       <main className="text-brand-dark dark:text-slate-100">
-        {/* Compatibility marquee */}
-        <section aria-label="Fleet coverage marquee" className="bg-white dark:bg-slate-900 py-4">
-          <div className="overflow-hidden">
-            <div className="flex animate-marquee whitespace-nowrap text-xs font-semibold uppercase tracking-[0.32em] text-brand-dark/60 dark:text-slate-400">
-              {compatibility.concat(compatibility).map((item, index) => {
-                const key = `${item.name}-${index}`;
-                return (
-                  <span key={key} className="mx-8 inline-flex items-center gap-4">
-                    {item.logo ? (
-                      <span className="flex items-center gap-3">
-                        <span className="flex items-center">
-                          <img
-                            src={item.logo}
-                            alt={`${item.name} logo`}
-                            width={item.width ?? 160}
-                            height={item.height ?? 60}
-                            className="h-8 w-auto object-contain"
-                            loading="lazy"
-                          />
-                        </span>
-                        <span>{item.name}</span>
-                      </span>
-                    ) : (
-                      item.name
-                    )}
-                    <span className="text-brand/30">•</span>
-                  </span>
-                );
-              })}
-            </div>
-          </div>
-        </section>
         {/* Hero */}
         <section id="hero" className="relative overflow-hidden bg-white dark:bg-slate-950">
           <div className="pointer-events-none absolute -left-24 top-16 h-72 w-72 rounded-full bg-brand/20 blur-3xl animate-gradient" />
